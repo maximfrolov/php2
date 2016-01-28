@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Maxim
- * Date: 28.01.2016
- * Time: 9:10
- */
+
+spl_autoload_register(function($class)
+{
+    if(preg_match('/\\\\/', $class)) {
+        $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    }
+    $fileName = __DIR__ . DIRECTORY_SEPARATOR . $class . '.php';
+    if(file_exists($fileName)) {
+        require_once $fileName;
+    }
+});
