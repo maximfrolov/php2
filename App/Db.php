@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Models\User;
 use \PDO;
 
 class Db
