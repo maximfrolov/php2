@@ -2,11 +2,11 @@
 
 require __DIR__ . '/../autoload.php';
 
-$a = new \App\Db();
-$a->query(
+$userOne = new \App\Db();
+$userOne->query(
     'SELECT * FROM users WHERE id=:id',
     '\App\Models\User',
     [':id' => 2]
 );
 
-var_dump($a);
+var_dump($userOne);
