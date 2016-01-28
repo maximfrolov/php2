@@ -6,6 +6,8 @@ use App\Db;
 
 class User
 {
+    const TABLE = 'users';
+
     public $name;
     public $email;
 
@@ -13,8 +15,8 @@ class User
     {
         $db = new Db();
         return $db->query(
-            'SELECT * FROM users',
-            'App\Models\User'
+            'SELECT * FROM ' . self::TABLE,
+            self::class
         );
     }
 }
