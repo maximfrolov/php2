@@ -3,5 +3,4 @@
 require __DIR__ . '/autoload.php';
 
 $db = new \App\Db();
-$res = $db->execute('CREATE TABLE users (id SERIAL)');
-var_dump($res);
+$data = $db->query('SELECT * FROM users');
