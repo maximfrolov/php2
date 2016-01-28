@@ -6,7 +6,7 @@ use \PDO;
 
 class Db
 {
-    protected $dbh;
+    public $dbh;
 
     public function __construct()
     {
@@ -22,17 +22,17 @@ class Db
         $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     }
 
-    public function execute($sql)
+    public function execute($sql, $arr = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($arr);
         return $res;
     }
 
-    public function query($sql, $class)
+    public function query($sql, $class, $arr = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($arr);
         if (false !== $res) {
             return $sth->fetchAll(PDO::FETCH_CLASS, $class);
         }
