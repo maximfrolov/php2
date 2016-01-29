@@ -7,7 +7,6 @@ require __DIR__ . '/autoload.php';
 try {
 
     $lastNews = News::lastNews();
-    var_dump($lastNews);
 
 } catch (PDOException $e) {
 
