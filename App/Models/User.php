@@ -9,6 +9,7 @@ class User
 {
     const TABLE = 'users';
 
+    public $id;
     public $name;
     public $email;
 
