@@ -25,7 +25,7 @@ abstract class Model
             [':id' => $id]
         );
         if (!empty($res)){
-            return $res;
+            return $res[0];
         }
         return false;
     }
