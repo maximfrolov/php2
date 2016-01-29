@@ -1,9 +1,6 @@
 <?php
 
-namespace tests;
-
 use App\Models\User;
-use \PDOException;
 
 require __DIR__ . '/../autoload.php';
 
