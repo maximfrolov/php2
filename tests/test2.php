@@ -9,8 +9,8 @@ require __DIR__ . '/../autoload.php';
 
 try {
 
-    $res = $byId = User::findById(1);
-    var_dump($res);
+    $byId = User::findById(2);
+    var_dump($byId);
 
 } catch (PDOException $e) {
 
