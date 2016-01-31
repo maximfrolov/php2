@@ -22,6 +22,8 @@ var_dump($config);
 $config = \App\Config::instance();
 var_dump($config);*/
 
-// тест вывода полей модели через foreach в методе insert()
-$user = new \App\Models\News();
-$user->insert();
+// тест метода insert()
+/*$user = new \App\Models\User();
+$user->name = 'Петр';
+$user->email = 'p@petrov.ru';
+$user->insert();*/
