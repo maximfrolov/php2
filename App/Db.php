@@ -13,16 +13,16 @@ class Db
 
     protected function __construct()
     {
-        $config = include __DIR__ . '/../config.php';
+        $config = Config::instance();
 
-        $dsn = $config['db']['driver'] . ':dbname=' .
-               $config['db']['dbname'] . ';host=' .
-               $config['db']['host'];
+        $dsn = $config->data['db']['driver'] . ':dbname=' .
+               $config->data['db']['dbname'] . ';host=' .
+               $config->data['db']['host'];
 
         $this->dbh = new PDO(
             $dsn,
-            $config['db']['user'],
-            $config['db']['password'],
+            $config->data['db']['user'],
+            $config->data['db']['password'],
             [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',]
         );
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
