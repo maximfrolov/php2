@@ -6,6 +6,8 @@ abstract class Model
 {
     const TABLE = '';
 
+    public $id;
+
     public static function findAll()
     {
         $db = Db::instance();

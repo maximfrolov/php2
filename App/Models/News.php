@@ -10,7 +10,6 @@ class News
 {
     const TABLE = 'news';
 
-    public $id;
     public $title;
     public $text;
 
