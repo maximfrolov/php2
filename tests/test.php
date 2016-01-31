@@ -21,3 +21,7 @@ var_dump($config);
 
 $config = \App\Config::instance();
 var_dump($config);*/
+
+// тест вывода полей модели через foreach в методе insert()
+$user = new \App\Models\News();
+$user->insert();
