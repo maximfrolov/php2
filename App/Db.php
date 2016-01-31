@@ -6,9 +6,12 @@ use \PDO;
 
 class Db
 {
-    public $dbh;
 
-    public function __construct()
+    use Singleton;
+
+    protected $dbh;
+
+    protected function __construct()
     {
         $config = include __DIR__ . '/../config.php';
         $dsn = $config['driver'] . ':dbname=' . $config['dbname'] . ';host=' . $config['host'];

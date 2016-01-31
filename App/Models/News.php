@@ -16,7 +16,7 @@ class News
 
     public static function lastNews()
     {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . self::TABLE . ' ORDER BY id DESC LIMIT 3',
             self::class
