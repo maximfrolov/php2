@@ -30,4 +30,9 @@ abstract class Model
         }
         return false;
     }
+
+    public function isNew()
+    {
+        return empty($this->id);
+    }
 }
