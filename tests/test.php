@@ -23,7 +23,8 @@ $config = \App\Config::instance();
 var_dump($config);*/
 
 // тест метода insert()
-/*$user = new \App\Models\User();
+$user = new \App\Models\User();
 $user->name = 'Петр';
 $user->email = 'p@petrov.ru';
-$user->insert();*/
+$user->insert();
+echo $user->id;
