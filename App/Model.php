@@ -91,4 +91,12 @@ abstract class Model
         $db->execute($sql, $values);
     }
 
+    public function save()
+    {
+        if (!$this->isNew()) {
+            return $this->update();
+        }
+        return $this->insert();
+    }
+
 }
