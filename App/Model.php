@@ -63,4 +63,13 @@ abstract class Model
         $this->id = $db->getLastInsertId();
     }
 
+    public function delete()
+    {
+        $sql = '
+            DELETE FROM ' . static::TABLE . '
+            WHERE id=' . $this->id;
+        $db = Db::instance();
+        $db->execute($sql);
+    }
+
 }
