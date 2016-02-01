@@ -49,7 +49,7 @@ abstract class Model
                 continue;
             }
             $columns[] = $k;
-            $values[':'.$k] = $v;
+            $values[':'. $k] = $v;
         }
 
         $sql = '
@@ -70,6 +70,25 @@ abstract class Model
             WHERE id=' . $this->id;
         $db = Db::instance();
         $db->execute($sql);
+    }
+
+    public function update()
+    {
+        $columns = [];
+        $values = [];
+        foreach ($this as $k => $v) {
+            if ('id' == $k) {
+                continue;
+            }
+            $columns[] = $k . '=:' . $k;
+            $values[':' . $k] = $v;
+        }
+
+        $sql = 'UPDATE ' . static::TABLE .
+               ' SET ' . implode(',', $columns) .
+               ' WHERE id=' . $this->id;
+        $db = Db::instance();
+        $db->execute($sql, $values);
     }
 
 }
