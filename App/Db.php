@@ -3,6 +3,7 @@
 namespace App;
 
 use \PDO;
+use \PDOException;
 
 class Db
 {
@@ -19,14 +20,20 @@ class Db
                $config->data['db']['dbname'] . ';host=' .
                $config->data['db']['host'];
 
-        $this->dbh = new PDO(
-            $dsn,
-            $config->data['db']['user'],
-            $config->data['db']['password'],
-            [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',]
-        );
-        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+        try {
+            $this->dbh = new PDO(
+                $dsn,
+                $config->data['db']['user'],
+                $config->data['db']['password'],
+                [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',]
+            );
+            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
+        } catch (PDOException $e) {
+            echo 'Подключение не удалось: ' . $e->getMessage();
+        }
+
     }
 
     public function execute($sql, $param = [])
