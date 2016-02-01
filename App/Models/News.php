@@ -17,9 +17,20 @@ class News
     {
         $db = Db::instance();
         return $db->query(
-            'SELECT * FROM ' . self::TABLE . ' ORDER BY id DESC LIMIT 3',
+            'SELECT * FROM ' . self::TABLE .
+            ' ORDER BY id DESC LIMIT 3',
             self::class
         );
     }
 
+    public static function findAllDesc()
+    {
+        $db = Db::instance();
+        return $db->query(
+            'SELECT * FROM ' . self::TABLE .
+            ' ORDER BY id DESC',
+            self::class
+        );
+
+    }
 }
