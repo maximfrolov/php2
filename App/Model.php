@@ -31,16 +31,13 @@ abstract class Model
         return false;
     }
 
-    public function isNew()
+    protected function isNew()
     {
         return empty($this->id);
     }
 
-    public function insert()
+    protected function insert()
     {
-        if (!$this->isNew()) {
-            return;
-        }
 
         $columns = [];
         $values = [];
@@ -72,7 +69,7 @@ abstract class Model
         $db->execute($sql);
     }
 
-    public function update()
+    protected function update()
     {
         $columns = [];
         $values = [];
