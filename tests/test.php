@@ -41,3 +41,17 @@ $user->name = 'Василий';
 $user->email = 'vasily@pupkin.com';
 $user->update();
 var_dump($user);*/
+
+// тест метода save()
+/*$user = new App\Models\User();
+$user->id = 7;
+$user->name = 'Vasya';
+$user->email = 'v@pupkin.ru';
+$user->save();
+var_dump($user);*/
+
+/*$user = new \App\Models\User();
+$user->name = 'Makar';
+$user->email = 'm@sledopyt.ru';
+$user->save();
+var_dump($user);*/
