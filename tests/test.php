@@ -23,8 +23,13 @@ $config = \App\Config::instance();
 var_dump($config);*/
 
 // тест метода insert()
-$user = new \App\Models\User();
+/*$user = new \App\Models\User();
 $user->name = 'Петр';
 $user->email = 'p@petrov.ru';
 $user->insert();
-echo $user->id;
+echo $user->id;*/
+
+// тест метода delete()
+/*$user =new \App\Models\User();
+$user->id = 8;
+$user->delete();*/
