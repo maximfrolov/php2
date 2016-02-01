@@ -33,3 +33,11 @@ echo $user->id;*/
 /*$user =new \App\Models\User();
 $user->id = 8;
 $user->delete();*/
+
+// тест метода update()
+/*$user = new App\Models\User();
+$user->id = 7;
+$user->name = 'Василий';
+$user->email = 'vasily@pupkin.com';
+$user->update();
+var_dump($user);*/
