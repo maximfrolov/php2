@@ -52,4 +52,9 @@ class Db
         }
         return [];
     }
+
+    public function getLastInsertId()
+    {
+        return $this->dbh->lastInsertId();
+    }
 }
