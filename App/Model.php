@@ -60,6 +60,7 @@ abstract class Model
         ';
         $db = Db::instance();
         $db->execute($sql, $values);
+        $this->id = $db->getLastInsertId();
     }
 
 }
