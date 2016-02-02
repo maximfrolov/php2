@@ -15,9 +15,7 @@
 
     <h2>Обновление новости:</h2>
     <form method="post" action="/App/Controllers/update.php">
-        <label for="id">ID новости:</label>
-        <br>
-        <input type="number" name="id" value="<?php echo $article->id ?>">
+        <input type="hidden" name="id" value="<?php echo $article->id ?>">
         <br>
         <label for="title">Заголовок:</label>
         <br>
@@ -32,11 +30,8 @@
         </p>
     </form>
 
-    <h2>Удаление новости:</h2>
     <form method="post" action="/App/Controllers/delete.php">
-        <label for="id">ID новости:</label>
-        <br>
-        <input type="number" name="id" value="<?php echo $article->id ?>">
+        <input type="hidden" name="id" value="<?php echo $article->id ?>">
         <p>
             <button type="submit">Удалить</button>
         </p>
