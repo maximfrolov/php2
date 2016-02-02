@@ -20,5 +20,15 @@
             </li>
         <?php endforeach; ?>
     </ul>
+    <p>
+        <a href="/App/Controllers/allNews.php">
+            <button>Читать все новости</button>
+        </a>
+    </p>
+    <p>
+        <a href="/App/Controllers/add.php">
+            <button>Добавить новость</button>
+        </a>
+    </p>
 </body>
 </html>
