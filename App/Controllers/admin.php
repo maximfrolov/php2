@@ -10,4 +10,5 @@ if (!empty($_GET['id'])) {
     include __DIR__ . '/../Views/admin.php';
 } else {
     header('Location: /');
+    exit;
 }
