@@ -12,30 +12,11 @@
         <?php echo $article->text; ?>
     </article>
     <hr>
-
-    <h2>Обновление новости:</h2>
-    <form method="post" action="/App/Controllers/update.php">
-        <input type="hidden" name="id" value="<?php echo $article->id ?>">
-        <br>
-        <label for="title">Заголовок:</label>
-        <br>
-        <input type="text" name="title" value="<?php echo $article->title; ?>">
-        <br>
-        <label for="text">Текст:</label>
-        <br>
-        <textarea cols="50" rows="5" name="text"><?php echo $article->text; ?></textarea>
-        <br>
-        <p>
-            <button type="submit">Обновить</button>
-        </p>
-    </form>
-
-    <form method="post" action="/App/Controllers/delete.php">
-        <input type="hidden" name="id" value="<?php echo $article->id ?>">
-        <p>
-            <button type="submit">Удалить</button>
-        </p>
-    </form>
+    <p>
+        <a href="/App/Controllers/admin.php?id=<?php echo $article->id; ?>">
+            <button>Редактировать новость</button>
+        </a>
+    </p>
     <p>
         <a href="/index.php">
             <button>На главную</button>

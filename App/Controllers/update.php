@@ -15,4 +15,4 @@ if (!empty($_POST['title']) &&
         header('Location: /');
         exit;
 }
-include __DIR__ . '/../Views/oneNews.php';
+include __DIR__ . '/../Views/admin.php';
