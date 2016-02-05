@@ -63,11 +63,12 @@ abstract class Model
 
     public function delete()
     {
+        $values[':id'] = $this->id;
         $sql = '
             DELETE FROM ' . static::TABLE . '
-            WHERE id=' . $this->id;
+            WHERE id=:id';
         $db = Db::instance();
-        $db->execute($sql);
+        $db->execute($sql, $values);
     }
 
     protected function update()
@@ -75,16 +76,16 @@ abstract class Model
         $columns = [];
         $values = [];
         foreach ($this as $k => $v) {
+            $values[':' . $k] = $v;
             if ('id' == $k) {
                 continue;
             }
             $columns[] = $k . '=:' . $k;
-            $values[':' . $k] = $v;
         }
 
         $sql = 'UPDATE ' . static::TABLE .
                ' SET ' . implode(',', $columns) .
-               ' WHERE id=' . $this->id;
+               ' WHERE id=:id';
         $db = Db::instance();
         $db->execute($sql, $values);
     }
