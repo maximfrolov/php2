@@ -4,6 +4,7 @@ namespace App;
 
 
 class View
+    implements \Countable
 {
 
     use Magic;
@@ -34,4 +35,13 @@ class View
         echo $this->render($template);
     }
 
+    /**
+     * Метод, подсчитывающий число элементов объекта
+     * @link http://php.net/manual/en/countable.count.php
+     * @return int Число элементов объекта
+     */
+    public function count()
+    {
+        return count($this->data);
+    }
 }
