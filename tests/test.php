@@ -58,4 +58,10 @@ var_dump($user);*/
 
 $view = new App\View();
 $view->users = \App\Models\User::findAll();
+
+// тест методов __set(), __unset()
+/*var_dump(isset($view->users));
+unset($view->users);
+var_dump(isset($view->users));*/
+
 $view->display(__DIR__ . '/../App/views/users/index.php');
