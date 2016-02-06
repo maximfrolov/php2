@@ -16,6 +16,9 @@ class View
     public function render($template)
     {
         ob_start();
+        foreach ($this->data as $prop => $value) {
+            $$prop = $value; // $$prop - переменная, чье имя содержится в переменной $prop
+        }
         include $template;
         $content = ob_get_contents();
         ob_end_clean();
