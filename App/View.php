@@ -9,10 +9,26 @@ class View
     use Magic;
 
     /**
+     * Метод, возвращающий подготовленный для показа шаблон
+     * @param $template string Путь к шаблону
+     * @return string Переданный в буфер вывода шаблон
+     */
+    public function render($template)
+    {
+        ob_start();
+        include $template;
+        $content = ob_get_contents();
+        ob_end_clean();
+        return $content;
+    }
+
+    /**
+     * Метод, показывающий подготовленный шаблон
      * @param $template string Путь к шаблону
      */
     public function display($template)
     {
-        include $template;
+        echo $this->render($template);
     }
+
 }
