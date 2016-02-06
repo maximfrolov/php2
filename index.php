@@ -6,4 +6,4 @@ require __DIR__ . '/autoload.php';
 
 $lastNews = News::lastNews();
 
-include __DIR__ . '/App/Views/lastNews.php';
+include __DIR__ . '/App/views/lastNews.php';

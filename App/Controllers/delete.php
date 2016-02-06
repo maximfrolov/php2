@@ -11,5 +11,5 @@ if (!empty($_POST['id'])) {
     header('Location: /');
     exit;
 } else {
-    include __DIR__ . '/../Views/admin.php';
+    include __DIR__ . '/../views/admin.php';
 }

@@ -6,4 +6,4 @@ require __DIR__ . '/../../autoload.php';
 
 $allNews = News::findAllDesc();
 
-include __DIR__ . '/../Views/allNews.php';
+include __DIR__ . '/../views/allNews.php';

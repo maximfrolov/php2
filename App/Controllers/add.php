@@ -12,5 +12,5 @@ if (!empty($_POST['title']) && !empty($_POST['text'])) {
     header('Location: /');
     exit;
 } else {
-    include __DIR__ . '/../Views/add.php';
+    include __DIR__ . '/../views/add.php';
 }
