@@ -55,3 +55,5 @@ $user->name = 'Makar';
 $user->email = 'm@sledopyt.ru';
 $user->save();
 var_dump($user);*/
+
+include __DIR__ . '/../App/views/users/index.php';
