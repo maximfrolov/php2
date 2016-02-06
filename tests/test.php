@@ -56,4 +56,6 @@ $user->email = 'm@sledopyt.ru';
 $user->save();
 var_dump($user);*/
 
-include __DIR__ . '/../App/views/users/index.php';
+$view = new App\View();
+$view->users = \App\Models\User::findAll();
+$view->display(__DIR__ . '/../App/views/users/index.php');
