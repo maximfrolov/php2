@@ -20,7 +20,7 @@
 <body>
 <h1>Пользователи:</h1>
 
-<?php foreach ($this->users as $user) : ?>
+<?php foreach ($users as $user) : ?>
 
     <div class="panel panel-default">
         <div class="panel-heading">
