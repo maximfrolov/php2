@@ -18,7 +18,28 @@
     <![endif]-->
 </head>
 <body>
-<h1>Hello, world!</h1>
+<h1>Пользователи:</h1>
+
+<?php foreach ($users as $user) : ?>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <?php if (!empty($user->name)) : ?>
+            <?php echo $user->name ?>
+            <?php else : ?>
+            -= без имени =-
+            <?php endif; ?>
+        </div>
+        <div class="panel-body">
+            <?php if (!empty($user->email)) : ?>
+            <?php echo $user->email ?>
+            <?php else : ?>
+                -= нет адреса эл. почты =-
+            <?php endif; ?>
+        </div>
+    </div>
+
+<?php endforeach; ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
