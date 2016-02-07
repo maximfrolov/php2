@@ -11,6 +11,6 @@ class Author
 
     const TABLE = 'authors';
 
-    public $author;
+    public $name;
 
 }
