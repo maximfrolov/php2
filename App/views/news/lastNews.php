@@ -19,24 +19,24 @@
 </head>
 <body>
     <h1>Последние новости</h1>
-        <?php foreach($news as $new): ?>
+        <?php foreach($news as $article): ?>
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <p>
-                        <a href="/App/Controllers/article.php?id=<?php echo $new->id; ?>">
-                            <h3><?php echo $new->title; ?></h3>
+                        <a href="/App/Controllers/article.php?id=<?php echo $article->id; ?>">
+                            <h3><?php echo $article->title; ?></h3>
                         </a>
                     </p>
                 </div>
                 <div class="panel-body">
                     <p>
-                        <?php echo $new->text; ?>
+                        <?php echo $article->text; ?>
                     </p>
                 </div>
                 <div class="panel-footer">
                     <p>
-                        Автор: <?php echo $new->author->name; ?>
+                        Автор: <?php echo $article->author->name; ?>
                     </p>
                 </div>
             </div>
