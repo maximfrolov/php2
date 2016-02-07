@@ -19,29 +19,29 @@
 </head>
 <body>
     <h1>Последние новости</h1>
-        <?php foreach($news as $article): ?>
+    <?php foreach($news as $article): ?>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <p>
-                        <a href="/App/Controllers/article.php?id=<?php echo $article->id; ?>">
-                            <h3><?php echo $article->title; ?></h3>
-                        </a>
-                    </p>
-                </div>
-                <div class="panel-body">
-                    <p>
-                        <?php echo $article->text; ?>
-                    </p>
-                </div>
-                <div class="panel-footer">
-                    <p>
-                        Автор: <?php echo $article->author->name; ?>
-                    </p>
-                </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p>
+                    <a href="/App/Controllers/article.php?id=<?php echo $article->id; ?>">
+                        <h3><?php echo $article->title; ?></h3>
+                    </a>
+                </p>
             </div>
+            <div class="panel-body">
+                <p>
+                    <?php echo $article->text; ?>
+                </p>
+            </div>
+            <div class="panel-footer">
+                <p>
+                    Автор: <?php echo $article->author->name; ?>
+                </p>
+            </div>
+        </div>
 
-        <?php endforeach; ?>
+    <?php endforeach; ?>
     <p>
         <a href="/App/Controllers/allNews.php">
             <button type="button" class="btn btn-primary btn-md">Читать все новости</button>
