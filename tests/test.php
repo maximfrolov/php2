@@ -56,12 +56,16 @@ $user->email = 'm@sledopyt.ru';
 $user->save();
 var_dump($user);*/
 
-$view = new App\View();
-$view->users = \App\Models\User::findAll();
+//$view = new App\View();
+//$view->users = \App\Models\User::findAll();
 
 // тест методов __set(), __unset()
 /*var_dump(isset($view->users));
 unset($view->users);
 var_dump(isset($view->users));*/
 
-$view->display(__DIR__ . '/../App/views/users/index.php');
+//$view->display(__DIR__ . '/../App/views/users/index.php');
+
+// тест метода __get() класса News
+/*$new = \App\Models\News::findById(3);
+var_dump($new->author);*/
