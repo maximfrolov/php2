@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Magic;
 use App\Model;
 use App\Db;
 
 class News
     extends Model
 {
+    use Magic;
+
     const TABLE = 'news';
 
     public $title;
     public $text;
+    public $author_id;
 
     public static function lastNews()
     {
@@ -33,4 +37,13 @@ class News
         );
 
     }
+
+    public function __get($k)
+    {
+        if ('author' == $k && !empty($this->author_id)) {
+            return Author::findById($this->author_id);
+        }
+        return $this->data[$k];
+    }
+
 }
