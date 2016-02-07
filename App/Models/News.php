@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use App\Magic;
 use App\Model;
 use App\Db;
 
 class News
     extends Model
 {
-    use Magic;
 
     const TABLE = 'news';
 
@@ -43,7 +41,7 @@ class News
         if ('author' == $k && !empty($this->author_id)) {
             return Author::findById($this->author_id);
         }
-        return $this->data[$k];
+        return false;
     }
 
 }
