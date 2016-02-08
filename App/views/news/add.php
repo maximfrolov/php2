@@ -24,6 +24,10 @@
             <label for="text">Текст:</label>
             <br>
             <textarea cols="50" rows="5" name="text"></textarea>
+            <br>
+            <label for="author_id">ID автора:</label>
+            <br>
+            <input type="number" name="author_id">
             <p>
                 <button type="submit" >Добавить новость</button>
                 <button type="reset" >Сброс</button>

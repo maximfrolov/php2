@@ -26,6 +26,9 @@
             <br>
             <textarea cols="50" rows="5" name="text"><?php echo $article->text; ?></textarea>
             <br>
+            <label for="author_id">ID автора:</label>
+            <br>
+            <input type="number" name="author_id" value="<?php echo $article->author_id ?>">
             <p>
                 <button type="submit">Обновить новость</button>
                 <button type="reset">Сброс</button>
