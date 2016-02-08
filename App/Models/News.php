@@ -58,6 +58,22 @@ class News
     }
 
     /**
+     * Магический метод  __isset();
+     * проверяет установлено ли недоступное свойство
+     * по заданному ключу
+     * @param $k string Имя недоступного свойства
+     * @return bool
+     */
+    public function __isset($k)
+    {
+        if ('author' == $k && isset($this->author_id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Магический метод __get();
      * проверяет на пустоту поле author_id,
      * при запросе поля author
