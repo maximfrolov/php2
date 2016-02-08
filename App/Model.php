@@ -8,8 +8,15 @@ namespace App;
  */
 abstract class Model
 {
+
+    /**
+     * Константа класса - имя таблицы в БД
+     */
     const TABLE = '';
 
+    /**
+     * @var $id integer id объекта модели
+     */
     public $id;
 
     /**
@@ -27,7 +34,7 @@ abstract class Model
 
     /**
      * Метод для нахождения одного объекта модели
-     * @param $id string id объекта модели
+     * @param $id integer id объекта модели
      * @return object Один объект модели
      */
     public static function findById($id)
