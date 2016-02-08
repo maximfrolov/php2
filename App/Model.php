@@ -2,6 +2,10 @@
 
 namespace App;
 
+/**
+ * Class Model Абстрактная модель
+ * @package App
+ */
 abstract class Model
 {
     const TABLE = '';
