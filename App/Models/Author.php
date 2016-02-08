@@ -6,7 +6,7 @@ namespace App\Models;
 use App\Model;
 
 /**
- * Class Author
+ * Class Author Модель авторов новостей
  * @package App\Models
  */
 class Author
