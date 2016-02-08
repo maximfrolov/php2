@@ -8,6 +8,10 @@ abstract class Model
 
     public $id;
 
+    /**
+     * Метод для нахождения всех объектов модели
+     * @return array Массив объектов
+     */
     public static function findAll()
     {
         $db = Db::instance();
@@ -17,6 +21,11 @@ abstract class Model
         );
     }
 
+    /**
+     * Метод для нахождения одного объекта модели
+     * @param $id string id объекта модели
+     * @return object Один объект модели
+     */
     public static function findById($id)
     {
         $db = Db::instance();
@@ -32,11 +41,18 @@ abstract class Model
         return false;
     }
 
+    /**
+     * Метод проверяющий, новый объект или нет
+     * @return bool
+     */
     protected function isNew()
     {
         return empty($this->id);
     }
 
+    /**
+     * Метод, сохраняющий новый объект в БД
+     */
     protected function insert()
     {
 
@@ -61,6 +77,9 @@ abstract class Model
         $this->id = $db->getLastInsertId();
     }
 
+    /**
+     * Метод, удаляющий объект из БД
+     */
     public function delete()
     {
         $values[':id'] = $this->id;
@@ -71,6 +90,9 @@ abstract class Model
         $db->execute($sql, $values);
     }
 
+    /**
+     * Метод, изменяющий объект из БД
+     */
     protected function update()
     {
         $columns = [];
@@ -90,6 +112,10 @@ abstract class Model
         $db->execute($sql, $values);
     }
 
+    /**
+     * Метод, сохраняющий новый объект в БД,
+     * или изменяющий, уже имеющийся в БД
+     */
     public function save()
     {
         if (!$this->isNew()) {
