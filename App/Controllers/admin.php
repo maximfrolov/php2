@@ -6,8 +6,9 @@ require __DIR__ . '/../../autoload.php';
 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];
-    $article = News::findById($id);
-    include __DIR__ . '/../views/news/admin.php';
+    $view = new \App\View();
+    $view->article = News::findById($id);
+    $view->display(__DIR__ . '/../views/news/admin.php');
 } else {
     header('Location: /');
     exit;
