@@ -67,5 +67,5 @@ var_dump(isset($view->users));*/
 //$view->display(__DIR__ . '/../App/views/users/index.php');
 
 // тест метода __get() класса News
-/*$new = \App\Models\News::findById(3);
-var_dump($new->author);*/
+/*$article = \App\Models\News::findById(3);
+var_dump($article->author);*/
