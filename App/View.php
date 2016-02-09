@@ -2,7 +2,10 @@
 
 namespace App;
 
-
+/**
+ * Class View
+ * @package App
+ */
 class View
     implements \Countable
 {
