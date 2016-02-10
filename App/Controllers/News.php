@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\View;
+use \App\Models\News as Article; // устранение конфликта имен
 
 /**
  * Class News Контроллер новостей
@@ -57,7 +58,7 @@ class News
      */
     protected function actionIndex()
     {
-        $this->view->news = \App\Models\News::lastNews();
+        $this->view->news = Article::lastNews();
         $this->view->display(__DIR__ . '/../views/news/lastNews.php');
     }
 
@@ -69,7 +70,7 @@ class News
     {
         if(!empty($_GET['id'])) {
             $id = $_GET['id'];
-            $this->view->article = \App\Models\News::findById($id);
+            $this->view->article = Article::findById($id);
             $this->view->display(__DIR__ . '/../views/news/oneNews.php');
         } else {
             header('Location: /');
@@ -82,8 +83,29 @@ class News
      */
     protected function actionAll()
     {
-        $this->view->news = \App\Models\News::findAllDesc();
+        $this->view->news = Article::findAllDesc();
         $this->view->display(__DIR__ . '/../views/news/allNews.php');
+    }
+
+    /**
+     * Метод-экшн, добавляющий новую новость,
+     * если заполнены все поля формы
+     */
+    protected function actionAdd()
+    {
+        if (!empty($_POST['title']) &&
+            !empty($_POST['text']) &&
+            !empty($_POST['author_id'])) {
+                $this->view->news = new Article();
+                $this->view->news->title     = $_POST['title'];
+                $this->view->news->text      = $_POST['text'];
+                $this->view->news->author_id = $_POST['author_id'];
+                $this->view->news->save();
+                header('Location: /');
+                exit;
+        } else {
+            $this->view->display(__DIR__ . '/../views/news/add.php');
+        }
     }
 
 }
