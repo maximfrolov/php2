@@ -126,4 +126,22 @@ class News
         }
     }
 
+    protected function actionUpdate()
+    {
+        if (!empty($_POST['title']) &&
+            !empty($_POST['text']) &&
+            !empty($_POST['author_id']) &&
+            !empty($_POST['id'])) {
+                $id = $_POST['id'];
+                $this->view->article = Article::findById($id);
+                $this->view->article->title     = $_POST['title'];
+                $this->view->article->text      = $_POST['text'];
+                $this->view->article->author_id = $_POST['author_id'];
+                $this->view->article->save();
+                header('Location: /');
+                exit;
+        }
+        $this->view->display(__DIR__ . '/../views/news/admin.php');
+    }
+
 }
