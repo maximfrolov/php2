@@ -61,4 +61,20 @@ class News
         $this->view->display(__DIR__ . '/../views/news/lastNews.php');
     }
 
+    /**
+     * Метод-экшн, для вывода одной новости по id,
+     * пришедшему от пользователя
+     */
+    protected function actionOne()
+    {
+        if(!empty($_GET['id'])) {
+            $id = $_GET['id'];
+            $this->view->article = \App\Models\News::findById($id);
+            $this->view->display(__DIR__ . '/../views/news/oneNews.php');
+        } else {
+            header('Location: /');
+            exit;
+        }
+    }
+
 }
