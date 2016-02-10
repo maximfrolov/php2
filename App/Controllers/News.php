@@ -126,6 +126,10 @@ class News
         }
     }
 
+    /**
+     * Метод, получающий данные из фомы редактирования новости
+     * и сохраняющий новость в базу данных
+     */
     protected function actionUpdate()
     {
         if (!empty($_POST['title']) &&
