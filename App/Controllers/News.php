@@ -77,4 +77,13 @@ class News
         }
     }
 
+    /**
+     * Метод-экшн, для вывода всех новостей
+     */
+    protected function actionAll()
+    {
+        $this->view->news = \App\Models\News::findAllDesc();
+        $this->view->display(__DIR__ . '/../views/news/allNews.php');
+    }
+
 }
