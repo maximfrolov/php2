@@ -108,4 +108,22 @@ class News
         }
     }
 
+    /**
+     * Метод-экшн, получающий одну новость по id
+     * пришедшему от пользователя,
+     * для редактирования/удаления
+     *
+     */
+    protected function actionAdmin()
+    {
+        if (!empty($_GET['id'])) {
+            $id = $_GET['id'];
+            $this->view->article = Article::findById($id);
+            $this->view->display(__DIR__ . '/../views/news/admin.php');
+        } else {
+            header('Location: /');
+            exit;
+        }
+    }
+
 }
