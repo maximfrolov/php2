@@ -1,10 +1,8 @@
 <?php
 
-use \App\View;
-use \App\Models\News;
+use \App\Controllers\News;
 
 require __DIR__ . '/../../autoload.php';
 
-$view = new View();
-$view->news = News::findAllDesc();
-$view->display(__DIR__ . '/../views/news/allNews.php');
+$controller = new News();
+$controller->action('All');
