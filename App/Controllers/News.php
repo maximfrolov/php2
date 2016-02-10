@@ -64,7 +64,7 @@ class News
 
     /**
      * Метод-экшн, для вывода одной новости по id,
-     * пришедшему от пользователя
+     * пришедшему от пользователя.
      */
     protected function actionOne()
     {
@@ -79,7 +79,7 @@ class News
     }
 
     /**
-     * Метод-экшн, для вывода всех новостей
+     * Метод-экшн, для вывода всех новостей.
      */
     protected function actionAll()
     {
@@ -89,7 +89,7 @@ class News
 
     /**
      * Метод-экшн, добавляющий новую новость,
-     * если заполнены все поля формы
+     * если заполнены все поля формы.
      */
     protected function actionAdd()
     {
@@ -111,7 +111,7 @@ class News
     /**
      * Метод-экшн, получающий одну новость по id
      * пришедшему от пользователя,
-     * для редактирования/удаления
+     * для редактирования/удаления.
      *
      */
     protected function actionAdmin()
@@ -128,7 +128,7 @@ class News
 
     /**
      * Метод, получающий данные из фомы редактирования новости
-     * и сохраняющий новость в базу данных
+     * и сохраняющий новость в базу данных.
      */
     protected function actionUpdate()
     {
@@ -146,6 +146,24 @@ class News
                 exit;
         }
         $this->view->display(__DIR__ . '/../views/news/admin.php');
+    }
+
+
+    /**
+     * Метод, получающий id новости из формы удаления новости
+     * и удаляющий эту новость из базы данных.
+     */
+    protected function actionDelete()
+    {
+        if (!empty($_POST['id'])) {
+            $id = $_POST['id'];
+            $this->view->article = Article::findById($id);
+            $this->view->article->delete();
+            header('Location: /');
+            exit;
+        } else {
+            $this->view->display(__DIR__ . '/../views/news/admin.php');
+        }
     }
 
 }
