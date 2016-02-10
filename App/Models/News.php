@@ -8,6 +8,8 @@ use App\Db;
 /**
  * Class News Модель новостей
  * @package App\Models
+ *
+ * @property \App\Models\Author $author
  */
 class News
     extends Model
