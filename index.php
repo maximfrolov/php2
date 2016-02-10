@@ -1,10 +1,8 @@
 <?php
 
-use \App\View;
-use \App\Models\News;
+use \App\Controllers\News;
 
 require __DIR__ . '/autoload.php';
 
-$view = new View();
-$view->news = News::lastNews();
-$view->display(__DIR__ . '/App/views/news/lastNews.php');
+$controller = new News();
+$controller->actionIndex();
