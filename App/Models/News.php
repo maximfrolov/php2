@@ -68,26 +68,36 @@ class News
      */
     public function __isset($k)
     {
-        if ('author' == $k && isset($this->author_id)) {
-            return true;
-        } else {
-            return false;
+
+        switch ($k) {
+            case 'author':
+                return !empty($this->author_id);
+                break;
+            default:
+                return false;
         }
     }
 
     /**
+     * LAZY LOAD
+     *
      * Магический метод __get();
      * проверяет на пустоту поле author_id,
      * при запросе поля author
+     *
      * @param $k string Имя недоступного свойства
-     * @return bool|object Вернет объект класса Author или false
+     * @return object|null Вернет объект класса Author или null
      */
     public function __get($k)
     {
-        if ('author' == $k && !empty($this->author_id)) {
-            return Author::findById($this->author_id);
+
+        switch ($k) {
+            case 'author':
+                return Author::findById($this->author_id);
+                break;
+            default:
+                return null;
         }
-        return false;
     }
 
 }
