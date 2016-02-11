@@ -1,8 +1,8 @@
 <?php
 
-use \App\Controllers\News;
+use \App\Controllers\NewsController;
 
 require __DIR__ . '/../../autoload.php';
 
-$controller = new News();
+$controller = new NewsController();
 $controller->action('One');

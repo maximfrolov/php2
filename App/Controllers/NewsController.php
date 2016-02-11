@@ -3,13 +3,13 @@
 namespace App\Controllers;
 
 use \App\View;
-use \App\Models\News as Article; // устранение конфликта имен
+use \App\Models\News;
 
 /**
- * Class News Контроллер новостей
+ * Class NewsController Контроллер новостей
  * @package App\Controllers
  */
-class News
+class NewsController
 {
 
     /**
@@ -20,7 +20,7 @@ class News
 
     /**
      * News constructor.
-     * При создании объекта App\Controllers\News,
+     * При создании объекта App\Controllers\NewsController,
      * автоматически создается объект View()
      * и сохраняется в свойство $view.
      */
@@ -58,7 +58,7 @@ class News
      */
     protected function actionIndex()
     {
-        $this->view->news = Article::lastNews();
+        $this->view->news = News::lastNews();
         $this->view->display(__DIR__ . '/../views/news/lastNews.php');
     }
 
@@ -70,7 +70,7 @@ class News
     {
         if(!empty($_GET['id'])) {
             $id = $_GET['id'];
-            $this->view->article = Article::findById($id);
+            $this->view->article = News::findById($id);
             $this->view->display(__DIR__ . '/../views/news/oneNews.php');
         } else {
             header('Location: /');
@@ -83,7 +83,7 @@ class News
      */
     protected function actionAll()
     {
-        $this->view->news = Article::findAllDesc();
+        $this->view->news = News::findAllDesc();
         $this->view->display(__DIR__ . '/../views/news/allNews.php');
     }
 
@@ -96,7 +96,7 @@ class News
         if (!empty($_POST['title']) &&
             !empty($_POST['text']) &&
             !empty($_POST['author_id'])) {
-                $this->view->news = new Article();
+                $this->view->news = new News();
                 $this->view->news->title     = $_POST['title'];
                 $this->view->news->text      = $_POST['text'];
                 $this->view->news->author_id = $_POST['author_id'];
@@ -118,7 +118,7 @@ class News
     {
         if (!empty($_GET['id'])) {
             $id = $_GET['id'];
-            $this->view->article = Article::findById($id);
+            $this->view->article = News::findById($id);
             $this->view->display(__DIR__ . '/../views/news/admin.php');
         } else {
             header('Location: /');
@@ -137,7 +137,7 @@ class News
             !empty($_POST['author_id']) &&
             !empty($_POST['id'])) {
                 $id = $_POST['id'];
-                $this->view->article = Article::findById($id);
+                $this->view->article = News::findById($id);
                 $this->view->article->title     = $_POST['title'];
                 $this->view->article->text      = $_POST['text'];
                 $this->view->article->author_id = $_POST['author_id'];
@@ -157,7 +157,7 @@ class News
     {
         if (!empty($_POST['id'])) {
             $id = $_POST['id'];
-            $this->view->article = Article::findById($id);
+            $this->view->article = News::findById($id);
             $this->view->article->delete();
             header('Location: /');
             exit;
