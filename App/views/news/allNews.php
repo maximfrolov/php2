@@ -24,7 +24,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
-                    <a href="/App/Controllers/article.php?id=<?php echo $article->id; ?>">
+                    <a href="/index.php?ctrl=NewsController&act=One&id=<?php echo $article->id; ?>">
                         <h3><?php echo $article->title; ?></h3>
                     </a>
                 </p>
