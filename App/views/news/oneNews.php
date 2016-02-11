@@ -31,7 +31,9 @@
         </div>
         <div class="panel-footer">
             <p>
-                Автор: <?php echo $article->author->name; ?>
+                <?php if (!empty($article->author)) : ?>
+                    Автор: <?php echo $article->author->name; ?>
+                <?php endif; ?>
             </p>
         </div>
     </div>
