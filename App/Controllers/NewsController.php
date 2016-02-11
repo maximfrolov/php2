@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use \App\View;
+use App\Controller;
 use \App\Models\News;
 
 /**
@@ -10,48 +10,8 @@ use \App\Models\News;
  * @package App\Controllers
  */
 class NewsController
+    extends Controller
 {
-
-    /**
-     * @property View object Защищенное свойство
-     * хранит в себе объект View();
-     */
-    protected $view;
-
-    /**
-     * News constructor.
-     * При создании объекта App\Controllers\NewsController,
-     * автоматически создается объект View()
-     * и сохраняется в свойство $view.
-     */
-    public function __construct()
-    {
-        $this->view = new View();
-    }
-
-    /**
-     * Proxy method
-     * Метод, получающий имя экшна,
-     * выполняющий какие-то действия перед экшном,
-     * выполняющий сам экшн.
-     * @param $action
-     * @return mixed
-     */
-    public function action($action)
-    {
-        $methodName = 'action' . $action;
-        $this->beforeAction();
-        return $this->$methodName();
-    }
-
-    /**
-     * Метод, который будет вызываться
-     * автоматически перед любым экшном.
-     */
-    protected function beforeAction()
-    {
-        //echo 'счетчик';
-    }
 
     /**
      * Метод-экшн, для вывода последних новостей.
