@@ -18,6 +18,31 @@
     <![endif]-->
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/index.php?ctrl=NewsController&act=Index">На главную</a></li>
+                    <li>
+                        <a href="/index.php?ctrl=NewsController&act=All">
+                            Все новости
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
     <h1>Последние новости</h1>
     <?php foreach($news as $article): ?>
 
@@ -44,20 +69,9 @@
         </div>
 
     <?php endforeach; ?>
-    <p>
-        <a href="/index.php?ctrl=NewsController&act=All">
-            <button type="button" class="btn btn-primary btn-md">Читать все новости</button>
-        </a>
-    </p>
-    <p>
-        <a href="/App/Controllers/add.php">
-            <button type="button" class="btn btn-primary btn-md">Добавить новость</button>
-        </a>
-    </p>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
