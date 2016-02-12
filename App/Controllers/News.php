@@ -3,13 +3,13 @@
 namespace App\Controllers;
 
 use App\Controller;
-use \App\Models\News;
+use \App\Models\News as article; // устранение конфликта имен
 
 /**
  * Class NewsController Контроллер новостей
  * @package App\Controllers
  */
-class NewsController
+class News
     extends Controller
 {
 
@@ -18,7 +18,7 @@ class NewsController
      */
     protected function actionIndex()
     {
-        $this->view->news = News::lastNews();
+        $this->view->news = article::lastNews();
         $this->view->display(__DIR__ . '/../views/news/lastNews.php');
     }
 
@@ -30,7 +30,7 @@ class NewsController
     {
         if(!empty($_GET['id'])) {
             $id = $_GET['id'];
-            $this->view->article = News::findById($id);
+            $this->view->article = article::findById($id);
             $this->view->display(__DIR__ . '/../views/news/oneNews.php');
         } else {
             header('Location: /');
@@ -43,7 +43,7 @@ class NewsController
      */
     protected function actionAll()
     {
-        $this->view->news = News::findAllDesc();
+        $this->view->news = article::findAllDesc();
         $this->view->display(__DIR__ . '/../views/news/allNews.php');
     }
 
