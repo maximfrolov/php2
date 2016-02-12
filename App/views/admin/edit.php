@@ -15,7 +15,7 @@
 </div>
     <fieldset>
         <legend>Редактирование новости:</legend>
-        <form method="post" action="/admin/index.php?ctrl=AdminController&act=Update">
+        <form method="post" action="/admin/admin/update">
             <input type="hidden" name="id" value="<?php echo $article->id ?>">
             <br>
             <label for="title">Заголовок:</label>
@@ -35,7 +35,7 @@
             </p>
         </form>
         <!-- форма для удаления новости -->
-        <form method="post" action="/admin/index.php?ctrl=AdminController&act=Delete">
+        <form method="post" action="/admin/admin/delete/">
             <input type="hidden" name="id" value="<?php echo $article->id ?>">
             <p>
                 <button type="submit">Удалить новость</button>
@@ -44,7 +44,7 @@
     </fieldset>
 </div>
 <p>
-    <a href="/admin/index.php?ctrl=AdminController&act=Index">
+    <a href="/admin/admin/index">
         <button>Назад</button>
     </a>
 </p>
