@@ -33,9 +33,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/index.php?ctrl=NewsController&act=Index">На главную</a></li>
+                    <li class="active"><a href="/news/index/">На главную</a></li>
                     <li>
-                        <a href="/index.php?ctrl=NewsController&act=All">
+                        <a href="/news/all/">
                             Все новости
                         </a>
                     </li>
@@ -49,7 +49,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
-                    <a href="/index.php?ctrl=NewsController&act=One&id=<?php echo $article->id; ?>">
+                    <a href="/news/one/?id=<?php echo $article->id; ?>">
                         <h3><?php echo $article->title; ?></h3>
                     </a>
                 </p>
