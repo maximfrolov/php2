@@ -6,5 +6,7 @@ $ctrl = $_GET['ctrl'] ?: 'NewsController';
 $action = $_GET['act'] ?: 'Index';
 $controllerName = '\App\Controllers\\' . $ctrl;
 
-$controller = new $controllerName();
-$controller->action($action);
+if (class_exists($controllerName)) {
+    $controller = new $controllerName();
+    $controller->action($action);
+}
