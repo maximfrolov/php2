@@ -11,11 +11,11 @@
 </head>
 <body>
 <div>
-    <h2>Админ-панель:</h2>
+    <h2>Редактирование новости:</h2>
 </div>
     <fieldset>
         <legend>Редактирование новости:</legend>
-        <form method="post" action="/admin/admin/update">
+        <form method="post" action="/admin/admin/update/">
             <input type="hidden" name="id" value="<?php echo $article->id ?>">
             <br>
             <label for="title">Заголовок:</label>
@@ -44,7 +44,7 @@
     </fieldset>
 </div>
 <p>
-    <a href="/admin/admin/index">
+    <a href="/admin/admin/index/">
         <button>Назад</button>
     </a>
 </p>

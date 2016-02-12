@@ -6,10 +6,10 @@ use App\Controller;
 use \App\Models\News;
 
 /**
- * Class AdminController Контроллер админ-панели
+ * Class Admin Контроллер админ-панели
  * @package App\Controllers
  */
-class AdminController
+class Admin
     extends Controller
 {
 
@@ -65,12 +65,12 @@ class AdminController
      * для редактирования/удаления.
      *
      */
-    protected function actionAdmin()
+    protected function actionEdit()
     {
         if (!empty($_GET['id'])) {
             $id = $_GET['id'];
             $this->view->article = News::findById($id);
-            $this->view->display(__DIR__ . '/../views/admin/admin.php');
+            $this->view->display(__DIR__ . '/../views/admin/edit.php');
         } else {
             header('Location: /admin/');
             exit;
@@ -96,7 +96,7 @@ class AdminController
             header('Location: /admin/');
             exit;
         }
-        $this->view->display(__DIR__ . '/../views/admin/admin.php');
+        $this->view->display(__DIR__ . '/../views/admin/edit.php');
     }
 
     /**
@@ -112,7 +112,7 @@ class AdminController
             header('Location: /admin/');
             exit;
         } else {
-            $this->view->display(__DIR__ . '/../views/admin/admin.php');
+            $this->view->display(__DIR__ . '/../views/admin/edit.php');
         }
     }
 

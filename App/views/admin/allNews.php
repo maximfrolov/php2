@@ -33,11 +33,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/admin/index.php?ctrl=AdminController&act=Index">Все новости</a></li>
-                    <li><a href="/admin/index.php?ctrl=AdminController&act=Add">Добавить новость</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/index.php">Выход из админ-панели</a></li>
+                    <li class="active"><a href="/admin/admin/index/">Все новости</a></li>
+                    <li><a href="/admin/admin/add/">Добавить новость</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -48,7 +45,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
-                    <a href="/admin/index.php?ctrl=AdminController&act=One&id=<?php echo $article->id; ?>">
+                    <a href="/admin/admin/edit/one/?id=<?php echo $article->id; ?>">
                         <h3><?php echo $article->title; ?></h3>
                     </a>
                 </p>

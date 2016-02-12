@@ -33,15 +33,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/admin/index.php?ctrl=AdminController&act=Index">Все новости</a></li>
+                    <li><a href="/admin/admin/index/">Все новости</a></li>
                     <li>
-                        <a href="/admin/index.php?ctrl=AdminController&act=Admin&id=<?php echo $article->id; ?>">
+                        <a href="/admin/admin/edit/?id=<?php echo $article->id; ?>">
                             Редактировать новость
                         </a>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/index.php">Выход из админ-панели</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

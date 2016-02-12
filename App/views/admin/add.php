@@ -11,12 +11,12 @@
 </head>
 <body>
 <div>
-    <h2>Админ-панель:</h2>
+    <h2>Добавление новости:</h2>
 </div>
 <div>
     <fieldset>
         <legend>Добавление новости:</legend>
-        <form method="post" action="/admin/index.php?ctrl=AdminController&act=Add">
+        <form method="post" action="/admin/admin/add/">
             <label for="title">Заголовок:</label>
             <br>
             <input type="text" name="title">
@@ -36,7 +36,7 @@
     </fieldset>
 </div>
     <p>
-        <a href="/admin/index.php?ctrl=AdminController&act=Index">
+        <a href="/admin/admin/index/">
             <button>Назад</button>
         </a>
     </p>
