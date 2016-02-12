@@ -16,7 +16,7 @@
 <div>
     <fieldset>
         <legend>Добавление новости:</legend>
-        <form method="post" action="/App/Controllers/add.php">
+        <form method="post" action="/admin/index.php?ctrl=AdminController&act=Add">
             <label for="title">Заголовок:</label>
             <br>
             <input type="text" name="title">
