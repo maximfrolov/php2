@@ -44,8 +44,8 @@
     </fieldset>
 </div>
 <p>
-    <a href="/index.php">
-        <button>На главную</button>
+    <a href="/admin/index.php?ctrl=AdminController&act=Index">
+        <button>Назад</button>
     </a>
 </p>
 </body>
