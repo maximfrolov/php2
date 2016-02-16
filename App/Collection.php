@@ -26,7 +26,7 @@ class Collection
      */
     public function offsetExists($offset)
     {
-        return array_key_exists($this->data[$offset]);
+        return array_key_exists($offset, $this->data[$offset]);
     }
 
     /**
