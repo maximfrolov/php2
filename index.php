@@ -9,7 +9,11 @@ $action = !empty($uri[2]) ? ucfirst($uri[2]) : 'Index';
 
 $controllerName = '\App\Controllers\\' . $ctrl;
 
-if (class_exists($controllerName)) {
-    $controller = new $controllerName();
-    $controller->action($action);
+try {
+    if (class_exists($controllerName)) {
+        $controller = new $controllerName();
+        $controller->action($action);
+    }
+} catch (\App\Exceptions\Db $e) {
+    echo $e->getMessage();
 }
