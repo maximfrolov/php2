@@ -9,7 +9,7 @@ use \App\Exceptions\Db as DbException;
 class Db
 {
 
-    use Singleton;
+    use TSingleton;
 
     protected $dbh;
 
