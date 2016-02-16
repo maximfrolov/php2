@@ -33,8 +33,7 @@ class News
             $this->view->article = article::findById($id);
             $this->view->display(__DIR__ . '/../views/news/oneNews.php');
         } else {
-            header('Location: /');
-            exit;
+            $this->redirect('/');
         }
     }
 

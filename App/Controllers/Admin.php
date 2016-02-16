@@ -33,8 +33,7 @@ class Admin
             $this->view->article = News::findById($id);
             $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
         } else {
-            header('Location: /admin/');
-            exit;
+            $this->redirect('/admin/');
         }
     }
 
@@ -52,8 +51,7 @@ class Admin
             $this->view->news->text      = $_POST['text'];
             $this->view->news->author_id = $_POST['author_id'];
             $this->view->news->save();
-            header('Location: /admin/');
-            exit;
+            $this->redirect('/admin');
         } else {
             $this->view->display(__DIR__ . '/../views/admin/add.php');
         }
@@ -72,8 +70,7 @@ class Admin
             $this->view->article = News::findById($id);
             $this->view->display(__DIR__ . '/../views/admin/edit.php');
         } else {
-            header('Location: /admin/');
-            exit;
+            $this->redirect('/admin');
         }
     }
 
@@ -93,8 +90,7 @@ class Admin
             $this->view->article->text      = $_POST['text'];
             $this->view->article->author_id = $_POST['author_id'];
             $this->view->article->save();
-            header('Location: /admin/');
-            exit;
+            $this->redirect('/admin');
         }
         $this->view->display(__DIR__ . '/../views/admin/edit.php');
     }
@@ -109,8 +105,7 @@ class Admin
             $id = $_POST['id'];
             $this->view->article = News::findById($id);
             $this->view->article->delete();
-            header('Location: /admin/');
-            exit;
+            $this->redirect('/admin');
         } else {
             $this->view->display(__DIR__ . '/../views/admin/edit.php');
         }

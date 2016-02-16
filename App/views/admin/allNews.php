@@ -45,7 +45,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
-                    <a href="/admin/admin/edit/one/?id=<?php echo $article->id; ?>">
+                    <a href="/admin/admin/one/?id=<?php echo $article->id; ?>">
                         <h3><?php echo $article->title; ?></h3>
                     </a>
                 </p>

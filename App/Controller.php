@@ -50,4 +50,10 @@ abstract class Controller
         //echo 'счетчик';
     }
 
+    protected function redirect($uri)
+    {
+        header('Location: ' . $uri);
+        exit;
+    }
+
 }
