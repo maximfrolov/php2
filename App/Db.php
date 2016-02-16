@@ -4,6 +4,7 @@ namespace App;
 
 use \PDO;
 use \PDOException;
+use \App\Exceptions\Db as DbException;
 
 class Db
 {
@@ -31,7 +32,10 @@ class Db
             $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
         } catch (PDOException $e) {
-            echo 'Подключение не удалось: ' . $e->getMessage();
+            throw new DbException(
+                'Нет соединения с БД, ошибка в запросе! ' .
+                $e->getMessage()
+            );
         }
 
     }
