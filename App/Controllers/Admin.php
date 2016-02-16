@@ -33,7 +33,7 @@ class Admin
             $this->view->article = News::findById($id);
             $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
         } else {
-            $this->redirect('/admin/');
+            $this->redirect('/admin');
         }
     }
 
