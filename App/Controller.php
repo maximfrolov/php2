@@ -50,6 +50,10 @@ abstract class Controller
         //echo 'счетчик';
     }
 
+    /**
+     * Метод, перенаправляющий пользователя по адресу $uri
+     * @param $uri string Адрес перенаправления
+     */
     protected function redirect($uri)
     {
         header('Location: ' . $uri);
