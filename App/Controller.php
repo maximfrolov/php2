@@ -31,14 +31,16 @@ abstract class Controller
      * Метод, получающий имя экшна,
      * выполняющий какие-то действия перед экшном,
      * выполняющий сам экшн.
-     * @param $action
-     * @return mixed
+     *
+     * @param $action string Имя экшна
+     * @param $param string Переданный экшну параметр
+     * @return mixed вернет результат выполнения экшна
      */
-    public function action($action)
+    public function action($action, $param = '')
     {
         $methodName = 'action' . $action;
         $this->beforeAction();
-        return $this->$methodName();
+        return $this->$methodName($param);
     }
 
     /**
