@@ -35,8 +35,7 @@ class Db
         } catch (PDOException $e) {
 
             throw new DbException(
-                'Нет соединения с БД: ' .
-                $e->getMessage()
+                'Нет соединения с БД.'
             );
 
         }
@@ -53,8 +52,7 @@ class Db
         } catch (PDOException $e) {
 
             throw new DbException(
-                'Ошибка в запросе к БД: ' .
-                $e->getMessage()
+                'Ошибка в запросе к БД.'
             );
 
         }
@@ -75,8 +73,7 @@ class Db
         } catch (PDOException $e) {
 
             throw new DbException(
-                'Ошибка в запросе к БД: ' .
-                $e->getMessage()
+                'Ошибка в запросе к БД.'
             );
 
         }
