@@ -111,4 +111,15 @@ class Admin
         }
     }
 
+
+    /**
+     * Метод-экшн, для вывода сообщения об ошибке при работе с БД.
+     * @param $errorMessage string Переданное сообщение
+     */
+    public function actionError($errorMessage)
+    {
+        $this->view->error = $errorMessage;
+        $this->view->display(__DIR__ . '/../views/errors/dbErrorAdmin.php');
+    }
+
 }
