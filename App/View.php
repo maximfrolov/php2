@@ -10,7 +10,7 @@ class View
     implements \Countable
 {
 
-    use Magic;
+    use TMagic;
 
     /**
      * Метод, возвращающий подготовленный для показа шаблон

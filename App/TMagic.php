@@ -4,10 +4,10 @@ namespace App;
 
 
 /**
- * Class Magic Трейт
+ * Trait TMagic
  * @package App
  */
-trait Magic
+trait TMagic
 {
     /**
      * @property array Защищенное свойство
