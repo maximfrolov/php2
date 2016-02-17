@@ -46,4 +46,14 @@ class News
         $this->view->display(__DIR__ . '/../views/news/allNews.php');
     }
 
+    /**
+     * Метод-экшн, для вывода сообщения об ошибке при работе с БД.
+     * @param $errorMessage string Переданное сообщение
+     */
+    public function actionError($errorMessage)
+    {
+        $this->view->error = $errorMessage;
+        $this->view->display(__DIR__ . '/../views/errors/dbErrorNews.php');
+    }
+
 }
