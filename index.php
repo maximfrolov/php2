@@ -15,5 +15,5 @@ try {
         $controller->action($action);
     }
 } catch (\App\Exceptions\Db $e) {
-    echo $e->getMessage();
+    $controller->action('Error', $e->getMessage());
 }
