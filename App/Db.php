@@ -22,6 +22,7 @@ class Db
                $config->data['db']['host'];
 
         try {
+
             $this->dbh = new PDO(
                 $dsn,
                 $config->data['db']['user'],
@@ -32,29 +33,53 @@ class Db
             $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
         } catch (PDOException $e) {
+
             throw new DbException(
-                'Нет соединения с БД, ошибка в запросе! ' .
+                'Нет соединения с БД: ' .
                 $e->getMessage()
             );
+
         }
 
     }
 
     public function execute($sql, $params = [])
     {
-        $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute($params);
+        try {
+
+            $sth = $this->dbh->prepare($sql);
+            $res = $sth->execute($params);
+
+        } catch (PDOException $e) {
+
+            throw new DbException(
+                'Ошибка в запросе к БД: ' .
+                $e->getMessage()
+            );
+
+        }
         return $res;
     }
 
     public function query($sql, $class, $params = [])
     {
-        $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute($params);
-        if (false !== $res) {
-            return $sth->fetchAll(PDO::FETCH_CLASS, $class);
+        try {
+
+            $sth = $this->dbh->prepare($sql);
+            $res = $sth->execute($params);
+            if (false !== $res) {
+                return $sth->fetchAll(PDO::FETCH_CLASS, $class);
+            }
+            return [];
+
+        } catch (PDOException $e) {
+
+            throw new DbException(
+                'Ошибка в запросе к БД: ' .
+                $e->getMessage()
+            );
+
         }
-        return [];
     }
 
     public function getLastInsertId()
