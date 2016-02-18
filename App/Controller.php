@@ -36,7 +36,7 @@ abstract class Controller
      * @param $param string Переданный экшну параметр
      * @return mixed вернет результат выполнения экшна
      */
-    public function action($action, $param = '')
+    public function action($action, $param = [])
     {
         $methodName = 'action' . $action;
         $this->beforeAction();

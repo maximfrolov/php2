@@ -51,7 +51,7 @@ class News
      * в зависимости от типа класса переданного исключения.
      * @param $e object Переданное исключение
      */
-    public function actionError($e)
+    protected function actionError($e)
     {
         switch ($e) {
             case ($e instanceof \App\Exceptions\Error404):
