@@ -119,7 +119,7 @@ class Admin
     public function actionError($errorMessage)
     {
         $this->view->error = $errorMessage;
-        $this->view->display(__DIR__ . '/../views/errors/dbErrorAdmin.php');
+        $this->view->display(__DIR__ . '/../views/errors/errorAdmin.php');
     }
 
 }

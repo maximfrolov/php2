@@ -41,6 +41,7 @@
 </nav>
 
 <div class="container">
+    <h1><?php echo $header; ?></h1>
     <div class="alert alert-danger">
         <?php echo $error; ?>
     </div>
