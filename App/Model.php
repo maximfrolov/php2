@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Exceptions\Error404;
 
 /**
  * Class Model Абстрактная модель
@@ -10,7 +11,7 @@ abstract class Model
 {
 
     /**
-     * Константа класса - имя таблицы в БД
+     * Константа класса - имя таблицы в БД.
      */
     const TABLE = '';
 
@@ -20,7 +21,7 @@ abstract class Model
     public $id;
 
     /**
-     * Метод для нахождения всех объектов модели
+     * Метод для нахождения всех объектов модели.
      * @return array Массив объектов
      */
     public static function findAll()
@@ -33,9 +34,10 @@ abstract class Model
     }
 
     /**
-     * Метод для нахождения одного объекта модели
+     * Метод для нахождения одного объекта модели.
      * @param $id integer id объекта модели
      * @return object Один объект модели
+     * @throws object Исключение класса Error404
      */
     public static function findById($id)
     {
@@ -48,12 +50,16 @@ abstract class Model
         );
         if (!empty($res)){
             return $res[0];
+        } else {
+            throw new Error404(
+                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
+            );
         }
-        return false;
+
     }
 
     /**
-     * Метод проверяющий, новый объект или нет
+     * Метод проверяющий, новый объект или нет.
      * @return bool
      */
     protected function isNew()
@@ -62,7 +68,7 @@ abstract class Model
     }
 
     /**
-     * Метод, сохраняющий новый объект в БД
+     * Метод, сохраняющий новый объект в БД.
      */
     protected function insert()
     {
@@ -89,7 +95,7 @@ abstract class Model
     }
 
     /**
-     * Метод, удаляющий объект из БД
+     * Метод, удаляющий объект из БД.
      */
     public function delete()
     {
@@ -102,7 +108,7 @@ abstract class Model
     }
 
     /**
-     * Метод, изменяющий объект из БД
+     * Метод, изменяющий объект из БД.
      */
     protected function update()
     {
@@ -125,7 +131,7 @@ abstract class Model
 
     /**
      * Метод, сохраняющий новый объект в БД,
-     * или изменяющий, уже имеющийся в БД
+     * или изменяющий, уже имеющийся в БД.
      */
     public function save()
     {
