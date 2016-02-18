@@ -14,7 +14,8 @@ try {
         $controller = new $controllerName();
         $controller->action($action);
     }
+}  catch (\App\Exceptions\Error404 $e) {
+    $controller->action('Error', $e);
 } catch (\App\Exceptions\Db $e) {
-    $controller->action('Error', $e->getMessage());
-
+    $controller->action('Error', $e);
 }
