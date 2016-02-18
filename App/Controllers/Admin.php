@@ -111,13 +111,22 @@ class Admin
         }
     }
 
-
     /**
-     * Метод-экшн, для вывода сообщения об ошибке при работе с БД.
-     * @param $errorMessage string Переданное сообщение
+     * Метод-экшн, для вывода сообщения об ошибке,
+     * в зависимости от типа класса переданного исключения.
+     * @param $e object Переданное исключение
      */
-    public function actionError($errorMessage)
+    public function actionError($e)
     {
+        switch ($e) {
+            case ($e instanceof \App\Exceptions\Error404):
+                $this->view->header = 'Ошибка 404';
+                break;
+            case ($e instanceof \App\Exceptions\Db):
+                $this->view->header = 'Ошибка БД';
+                break;
+        }
+        $errorMessage = $e->getMessage();
         $this->view->error = $errorMessage;
         $this->view->display(__DIR__ . '/../views/errors/errorAdmin.php');
     }
