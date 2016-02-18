@@ -33,7 +33,7 @@ abstract class Controller
      * выполняющий сам экшн.
      *
      * @param $action string Имя экшна
-     * @param $param string Переданный экшну параметр
+     * @param $param array Переданный экшну параметр
      * @return mixed вернет результат выполнения экшна
      */
     public function action($action, $param = [])
