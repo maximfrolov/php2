@@ -52,11 +52,8 @@ abstract class Model
         );
         if (!empty($res)){
             return $res[0];
-        } else {
-            throw new Error404(
-                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
-            );
         }
+        return false;
 
     }
 
@@ -157,7 +154,7 @@ abstract class Model
     public function fill(array $data)
     {
         foreach ($data as $key => $value) {
-            if ('' !== $value) {
+            if (!empty($value)) {
                 if (in_array($key, static::$reqProp)) {
                     $this->{$key} = $value;
                 }

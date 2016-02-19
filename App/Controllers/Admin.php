@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controller;
 use App\Models\News;
 use App\MultiException;
+use App\Exceptions\Error404;
 
 /**
  * Class Admin Контроллер админ-панели
@@ -29,14 +30,20 @@ class Admin
      */
     protected function actionOne()
     {
-        if(!empty($_GET['id'])) {
-            $id = $_GET['id'];
-            $this->view->article = News::findById($id);
-            $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
-        } else {
+        $id = $_GET['id'];
+        if(empty($id)) {
             $this->redirect('/admin');
         }
+        if (!empty($this->view->article = News::findById($id))) {
+                $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
+        } else {
+            throw new Error404(
+                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
+            );
+        }
     }
+
+
 
     /**
      * Метод-экшн, показывающий шаблон
@@ -55,12 +62,16 @@ class Admin
      */
     protected function actionEdit()
     {
-        if (!empty($_GET['id'])) {
-            $id = $_GET['id'];
-            $this->view->article = News::findById($id);
+        $id = $_GET['id'];
+        if (empty($id)) {
+            $this->redirect('/admin');
+        }
+        if (!empty($this->view->article = News::findById($id))) {
             $this->view->display(__DIR__ . '/../views/admin/edit.php');
         } else {
-            $this->redirect('/admin');
+            throw new Error404(
+                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
+            );
         }
     }
 
@@ -70,16 +81,16 @@ class Admin
      */
     protected function actionUpdate()
     {
-            $id = $_POST['id'];
-            try {
-                $article = News::findById($id);
-                $article->fill($_POST)->save;
-                $this->redirect('/admin');
+        $id = $_POST['id'];
+        try {
+            $article = News::findById($id);
+            $article->fill($_POST)->save();
+            $this->redirect('/admin');
 
-            } catch (MultiException $e) {
+        } catch (MultiException $e) {
 
-                $this->view->errors = $e;
-            }
+            $this->view->errors = $e;
+        }
         $this->view->display(__DIR__ . '/../views/admin/create.php');
     }
 
@@ -89,13 +100,14 @@ class Admin
      */
     protected function actionDelete()
     {
-        if (!empty($_POST['id'])) {
-            $id = $_POST['id'];
-            $this->view->article = News::findById($id);
+        if (!empty($this->view->article = News::findById($_POST['id']))) {
             $this->view->article->delete();
             $this->redirect('/admin');
         } else {
-            $this->view->display(__DIR__ . '/../views/admin/edit.php');
+            throw new Error404(
+                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
+            );
+
         }
     }
 
@@ -124,7 +136,6 @@ class Admin
      */
     protected function actionCreate()
     {
-
         try {
             $article = new News();
             $article->fill($_POST)->save();
@@ -133,7 +144,6 @@ class Admin
         } catch (MultiException $e) {
 
             $this->view->errors = $e;
-
         }
         $this->view->display(__DIR__ . '/../views/admin/create.php');
     }

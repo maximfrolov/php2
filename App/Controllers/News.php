@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controller;
+use App\Exceptions\Error404;
 use App\Models\News as article; // устранение конфликта имен
 
 /**
@@ -28,12 +29,15 @@ class News
      */
     protected function actionOne()
     {
-        if(!empty($_GET['id'])) {
-            $id = $_GET['id'];
-            $this->view->article = article::findById($id);
+        if(empty($_GET['id'])) {
+            $this->redirect('/');
+        }
+        if (!empty($this->view->article = article::findById($_GET['id']))) {
             $this->view->display(__DIR__ . '/../views/news/oneNews.php');
         } else {
-            $this->redirect('/');
+            throw new Error404(
+                'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
+            );
         }
     }
 
