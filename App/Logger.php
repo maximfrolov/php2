@@ -8,7 +8,7 @@ namespace App;
 class Logger
 {
     /**
-     * @const PATH_TO_FILE string Путь к лог-файлу
+     * PATH_TO_FILE string Константа класса - путь к лог-файлу
      */
     const PATH_TO_FILE = __DIR__ . '/logs/log.txt';
 
