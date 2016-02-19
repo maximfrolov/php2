@@ -16,9 +16,11 @@ abstract class Model
     const TABLE = '';
 
     /**
-     * @var $id integer id объекта модели
+     * @property $id integer id объекта модели
+     * @property $reqProp array Массив требуемых полей модели
      */
     public $id;
+    protected static $reqProp = [];
 
     /**
      * Метод для нахождения всех объектов модели.
@@ -140,5 +142,37 @@ abstract class Model
         }
         return $this->insert();
     }
+
+    /**
+     * Метод, получающий массив данных,
+     * заполняющий свойства модели этими данными
+     * и возвращающий объект модели .
+     * Выбрасывает исключение класса MultiException,
+     * в случае некорректности данных.
+     *
+     * @param $data array Массив данных
+     * @return $this object Объект модели
+     * @throws $e object Исключение класса MultiException
+     */
+    public function fill(array $data)
+    {
+        foreach ($data as $key => $value) {
+            if ('' !== $value) {
+                if (in_array($key, static::$reqProp)) {
+                    $this->{$key} = $value;
+                }
+            } else {
+                if (!isset($e)) {
+                    $e = new MultiException();
+                }
+                $e[] = new \Exception('Некорректный '. $key . '!');
+            }
+        }
+        if (!empty($e)) {
+            throw $e;
+        }
+        return $this;
+    }
+
 
 }
