@@ -3,7 +3,8 @@
 namespace App\Controllers;
 
 use App\Controller;
-use \App\Models\News;
+use App\Models\News;
+use App\MultiException;
 
 /**
  * Class Admin Контроллер админ-панели
@@ -38,23 +39,12 @@ class Admin
     }
 
     /**
-     * Метод-экшн, добавляющий новую новость,
-     * если заполнены все поля формы.
+     * Метод-экшн, показывающий шаблон
+     * для добавления новости.
      */
     protected function actionAdd()
     {
-        if (!empty($_POST['title']) &&
-            !empty($_POST['text']) &&
-            !empty($_POST['author_id'])) {
-            $this->view->news = new News();
-            $this->view->news->title     = $_POST['title'];
-            $this->view->news->text      = $_POST['text'];
-            $this->view->news->author_id = $_POST['author_id'];
-            $this->view->news->save();
-            $this->redirect('/admin');
-        } else {
-            $this->view->display(__DIR__ . '/../views/admin/add.php');
-        }
+        $this->view->display(__DIR__ . '/../views/admin/add.php');
     }
 
     /**
@@ -80,19 +70,17 @@ class Admin
      */
     protected function actionUpdate()
     {
-        if (!empty($_POST['title']) &&
-            !empty($_POST['text']) &&
-            !empty($_POST['author_id']) &&
-            !empty($_POST['id'])) {
             $id = $_POST['id'];
-            $this->view->article = News::findById($id);
-            $this->view->article->title     = $_POST['title'];
-            $this->view->article->text      = $_POST['text'];
-            $this->view->article->author_id = $_POST['author_id'];
-            $this->view->article->save();
-            $this->redirect('/admin');
-        }
-        $this->view->display(__DIR__ . '/../views/admin/edit.php');
+            try {
+                $article = News::findById($id);
+                $article->fill($_POST)->save;
+                $this->redirect('/admin');
+
+            } catch (MultiException $e) {
+
+                $this->view->errors = $e;
+            }
+        $this->view->display(__DIR__ . '/../views/admin/create.php');
     }
 
     /**
@@ -129,6 +117,25 @@ class Admin
         $errorMessage = $e->getMessage();
         $this->view->error = $errorMessage;
         $this->view->display(__DIR__ . '/../views/errors/errorAdmin.php');
+    }
+
+    /**
+     * Метод-экшн, создающий новую новость
+     */
+    protected function actionCreate()
+    {
+
+        try {
+            $article = new News();
+            $article->fill($_POST)->save();
+            $this->redirect('/admin');
+
+        } catch (MultiException $e) {
+
+            $this->view->errors = $e;
+
+        }
+        $this->view->display(__DIR__ . '/../views/admin/create.php');
     }
 
 }
