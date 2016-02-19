@@ -1,0 +1,53 @@
+19.02.2016(1) 15:26:08
+message: Упс..! Ошибка 404. Страница, которую вы искали, не найдена.
+file: E:\OpenServer\domains\php2\App\Model.php
+line: 56
+stack trace: 
+#0 E:\OpenServer\domains\php2\App\Controllers\Admin.php(34): App\Model::findById('11545')
+#1 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\Admin->actionOne(Array)
+#2 E:\OpenServer\domains\php2\admin\index.php(15): App\Controller->action('One')
+#3 {main}
+19.02.2016(1) 15:29:19
+message: Нет соединения с БД.
+file: E:\OpenServer\domains\php2\App\Db.php
+line: 37
+stack trace: 
+#0 E:\OpenServer\domains\php2\App\TSingleton.php(33): App\Db->__construct()
+#1 E:\OpenServer\domains\php2\App\Models\News.php(45): App\Db::instance()
+#2 E:\OpenServer\domains\php2\App\Controllers\News.php(21): App\Models\News::lastNews()
+#3 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\News->actionIndex(Array)
+#4 E:\OpenServer\domains\php2\index.php(15): App\Controller->action('Index')
+#5 {main}
+19.02.2016(1) 15:30:46
+message: Ошибка в запросе к БД.
+file: E:\OpenServer\domains\php2\App\Db.php
+line: 75
+stack trace: 
+#0 E:\OpenServer\domains\php2\App\Model.php(51): App\Db->query('SELEC * FROM au...', 'App\\Models\\Auth...', Array)
+#1 E:\OpenServer\domains\php2\App\Models\News.php(103): App\Model::findById('2')
+#2 E:\OpenServer\domains\php2\App\views\news\lastNews.php(64): App\Models\News->__get('author')
+#3 E:\OpenServer\domains\php2\App\View.php(26): include('E:\\OpenServer\\d...')
+#4 E:\OpenServer\domains\php2\App\View.php(38): App\View->render('E:\\OpenServer\\d...')
+#5 E:\OpenServer\domains\php2\App\Controllers\News.php(22): App\View->display('E:\\OpenServer\\d...')
+#6 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\News->actionIndex(Array)
+#7 E:\OpenServer\domains\php2\index.php(15): App\Controller->action('Index')
+#8 {main}
+19.02.2016(1) 15:33:23
+message: Ошибка в запросе к БД.
+file: E:\OpenServer\domains\php2\App\Db.php
+line: 75
+stack trace: 
+#0 E:\OpenServer\domains\php2\App\Model.php(51): App\Db->query('SELEC * FROM ne...', 'App\\Models\\News', Array)
+#1 E:\OpenServer\domains\php2\App\Controllers\Admin.php(34): App\Model::findById('115')
+#2 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\Admin->actionOne(Array)
+#3 E:\OpenServer\domains\php2\admin\index.php(15): App\Controller->action('One')
+#4 {main}
+19.02.2016(1) 15:34:34
+message: Упс..! Ошибка 404. Страница, которую вы искали, не найдена.
+file: E:\OpenServer\domains\php2\App\Model.php
+line: 56
+stack trace: 
+#0 E:\OpenServer\domains\php2\App\Controllers\News.php(33): App\Model::findById('1152')
+#1 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\News->actionOne(Array)
+#2 E:\OpenServer\domains\php2\index.php(15): App\Controller->action('One')
+#3 {main}
