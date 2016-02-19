@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Model;
 use App\Db;
+use App\MultiException;
 
 /**
  * Class News Модель новостей
@@ -24,10 +25,16 @@ class News
      * @property $title string Заголовок новости
      * @property $text string Текст новости
      * @property $author_id integer id автора новости
+     * @property $reqProp array Массив требуемых полей модели
      */
     public $title;
     public $text;
     public $author_id;
+    protected static $reqProp = [
+        'title',
+        'text',
+        'author_id',
+    ];
 
     /**
      * Метод нахождения последних 3-х новостей
