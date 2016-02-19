@@ -69,3 +69,13 @@ var_dump(isset($view->users));*/
 // тест метода __get() класса News
 /*$article = \App\Models\News::findById(3);
 var_dump($article->author);*/
+
+// тест метода fill()
+$data = [
+    'title'     => 'Тестовая новость',
+    'text'      => 'Тестовая новость Тестовая новость Тестовая новость Тестовая новость',
+    'author_id' => '2',
+];
+$article = new \App\Models\News();
+$article->fill($data);
+var_dump($article);
