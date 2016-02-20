@@ -30,11 +30,10 @@ class Admin
      */
     protected function actionOne()
     {
-        $id = $_GET['id'];
-        if(empty($id)) {
+        if(empty($_GET['id'])) {
             $this->redirect('/admin');
         }
-        if (!empty($this->view->article = News::findById($id))) {
+        if (!empty($this->view->article = News::findById($_GET['id']))) {
                 $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
         } else {
             throw new Error404(
@@ -62,11 +61,10 @@ class Admin
      */
     protected function actionEdit()
     {
-        $id = $_GET['id'];
         if (empty($id)) {
             $this->redirect('/admin');
         }
-        if (!empty($this->view->article = News::findById($id))) {
+        if (!empty($this->view->article = News::findById($_GET['id']))) {
             $this->view->display(__DIR__ . '/../views/admin/edit.php');
         } else {
             throw new Error404(
@@ -81,9 +79,8 @@ class Admin
      */
     protected function actionUpdate()
     {
-        $id = $_POST['id'];
         try {
-            $article = News::findById($id);
+            $article = News::findById($_POST['id']);
             $article->fill($_POST)->save();
             $this->redirect('/admin');
 
@@ -107,7 +104,6 @@ class Admin
             throw new Error404(
                 'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
             );
-
         }
     }
 
