@@ -18,11 +18,14 @@ class Logger
      */
     public static function loggingError($e)
     {
-        $str = date('d.m.Y(L) H:i:s') . PHP_EOL .
-            'message: ' . $e->getMessage() . PHP_EOL .
-            'file: ' . $e->getFile() . PHP_EOL .
-            'line: ' . $e->getLine() . PHP_EOL .
-            'stack trace: ' . $e->getTraceAsString() . PHP_EOL;
+        $errorInform = [
+            date('d.m.Y(L) H:i:s'),
+            'message: ' . $e->getMessage(),
+            'file: ' . $e->getFile(),
+            'line: ' . $e->getLine(),
+            'stack trace: ' . $e->getTraceAsString(),
+        ];
+        $str = implode(PHP_EOL, $errorInform);
 
         file_put_contents(self::PATH_TO_FILE, $str, FILE_APPEND);
     }
