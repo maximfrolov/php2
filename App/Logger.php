@@ -2,13 +2,13 @@
 
 namespace App;
 /**
- * Class Logger Класс-логгер
+ * Class Logger
  * @package App
  */
 class Logger
 {
     /**
-     * PATH_TO_FILE string Константа класса - путь к лог-файлу
+     * Константа класса - путь к лог-файлу
      */
     const PATH_TO_FILE = __DIR__ . '/logs/log.txt';
 
@@ -30,25 +30,4 @@ class Logger
         file_put_contents(self::PATH_TO_FILE, $str, FILE_APPEND);
     }
 
-    /*    protected $message;
-    protected $file;
-    protected $line;
-
-    public function __construct($e)
-    {
-        $this->message = $e->getMessage();
-        $this->file = $e->getFile();
-        $this->line = $e->getLine();
-    }
-    public function loggingError()
-    {
-        $handle = fopen(self::PATH_TO_FILE, 'at+');
-        fwrite($handle, date('d.m.Y(L) H:i:s') . "\n");
-        foreach ($this as $key => $value) {
-            $str = $key . ' : ' . $value . "\n";
-            fwrite($handle, $str);
-        }
-        fwrite($handle, "\n");
-        fclose($handle);
-    }*/
 }
