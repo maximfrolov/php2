@@ -61,7 +61,7 @@ class Admin
      */
     protected function actionEdit()
     {
-        if (empty($id)) {
+        if (empty($_GET['id'])) {
             $this->redirect('/admin');
         }
         if (!empty($this->view->article = News::findById($_GET['id']))) {
