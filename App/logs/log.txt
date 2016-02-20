@@ -70,3 +70,10 @@ line: 38
 stack trace: #0 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\News->actionOne(Array)
 #1 E:\OpenServer\domains\php2\index.php(15): App\Controller->action('One')
 #2 {main}
+20.02.2016(1) 18:30:43
+message: Упс..! Ошибка 404. Страница, которую вы искали, не найдена.
+file: E:\OpenServer\domains\php2\App\Controllers\News.php
+line: 38
+stack trace: #0 E:\OpenServer\domains\php2\App\Controller.php(43): App\Controllers\News->actionOne(Array)
+#1 E:\OpenServer\domains\php2\index.php(15): App\Controller->action('One')
+#2 {main}
