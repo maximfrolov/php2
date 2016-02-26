@@ -16,9 +16,11 @@ try {
     }
 }  catch (\App\Exceptions\Error404 $e) {
     \App\Logger::loggingError($e);
-    $controller->action('Error', $e);
+    $controller = new \App\Controllers\Errors();
+    $controller->action('404', $e);
 
 } catch (\App\Exceptions\Db $e) {
     \App\Logger::loggingError($e);
-    $controller->action('Error', $e);
+    $controller = new \App\Controllers\Errors();
+    $controller->action('ErrorDb', $e);
 }
