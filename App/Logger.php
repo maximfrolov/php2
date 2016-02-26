@@ -23,7 +23,7 @@ class Logger
             'message: ' . $e->getMessage(),
             'file: ' . $e->getFile(),
             'line: ' . $e->getLine(),
-            'stack trace: ' . $e->getTraceAsString(),
+            'stack trace: ' . $e->getTraceAsString() . PHP_EOL,
         ];
         $str = implode(PHP_EOL, $errorInform);
 
