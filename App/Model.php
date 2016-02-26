@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Exceptions\Error404;
 
 /**
  * Class Model Абстрактная модель

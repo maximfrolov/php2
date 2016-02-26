@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Model;
 use App\Db;
-use App\MultiException;
 
 /**
  * Class News Модель новостей
