@@ -18,8 +18,8 @@ class Db
         $config = Config::instance();
 
         $dsn = $config->data['db']['driver'] . ':dbname=' .
-               $config->data['db']['dbname'] . ';host=' .
-               $config->data['db']['host'];
+            $config->data['db']['dbname'] . ';host=' .
+            $config->data['db']['host'];
 
         try {
 

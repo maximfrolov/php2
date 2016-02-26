@@ -34,8 +34,8 @@
         <br>
         <input type="number" name="author_id">
         <p>
-            <button type="submit" >Добавить новость</button>
-            <button type="reset" >Сброс</button>
+            <button type="submit">Добавить новость</button>
+            <button type="reset">Сброс</button>
         </p>
     </form>
     <p>

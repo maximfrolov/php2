@@ -47,4 +47,5 @@ class View
     {
         return count($this->data);
     }
+
 }

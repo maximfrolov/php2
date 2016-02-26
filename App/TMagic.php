@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 /**
  * Trait TMagic
  * @package App
@@ -58,4 +57,5 @@ trait TMagic
     {
         unset($this->data[$k]);
     }
+
 }

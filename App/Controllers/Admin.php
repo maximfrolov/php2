@@ -30,18 +30,17 @@ class Admin
      */
     protected function actionOne()
     {
-        if(empty($_GET['id'])) {
+        if (empty($_GET['id'])) {
             $this->redirect('/admin');
         }
         if (!empty($this->view->article = News::findById($_GET['id']))) {
-                $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
+            $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
         } else {
             throw new Error404(
                 'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
             );
         }
     }
-
 
 
     /**

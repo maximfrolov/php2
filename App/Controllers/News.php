@@ -29,7 +29,7 @@ class News
      */
     protected function actionOne()
     {
-        if(empty($_GET['id'])) {
+        if (empty($_GET['id'])) {
             $this->redirect('/');
         }
         if (!empty($this->view->article = article::findById($_GET['id']))) {

@@ -14,7 +14,7 @@ class Logger
 
     /**
      * Метод записи в текстовый лог информации об ошибках
-     *@param $e object Переданное исключение
+     * @param $e object Переданное исключение
      */
     public static function loggingError($e)
     {

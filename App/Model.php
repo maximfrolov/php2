@@ -49,7 +49,7 @@ abstract class Model
             static::class,
             [':id' => $id]
         );
-        if (!empty($res)){
+        if (!empty($res)) {
             return $res[0];
         }
         return false;
@@ -78,7 +78,7 @@ abstract class Model
                 continue;
             }
             $columns[] = $k;
-            $values[':'. $k] = $v;
+            $values[':' . $k] = $v;
         }
 
         $sql = '
@@ -121,8 +121,8 @@ abstract class Model
         }
 
         $sql = 'UPDATE ' . static::TABLE .
-               ' SET ' . implode(',', $columns) .
-               ' WHERE id=:id';
+            ' SET ' . implode(',', $columns) .
+            ' WHERE id=:id';
         $db = Db::instance();
         $db->execute($sql, $values);
     }
@@ -161,7 +161,7 @@ abstract class Model
                 if (!isset($e)) {
                     $e = new MultiException();
                 }
-                $e[] = new \Exception('Некорректный '. $key . '!');
+                $e[] = new \Exception('Некорректный ' . $key . '!');
             }
         }
         if (!empty($e)) {
@@ -169,6 +169,5 @@ abstract class Model
         }
         return $this;
     }
-
 
 }

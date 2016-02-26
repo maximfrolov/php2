@@ -25,14 +25,14 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <?php if (!empty($user->name)) : ?>
-            <?php echo $user->name ?>
+                <?php echo $user->name ?>
             <?php else : ?>
-            -= без имени =-
+                -= без имени =-
             <?php endif; ?>
         </div>
         <div class="panel-body">
             <?php if (!empty($user->email)) : ?>
-            <?php echo $user->email ?>
+                <?php echo $user->email ?>
             <?php else : ?>
                 -= нет адреса эл. почты =-
             <?php endif; ?>

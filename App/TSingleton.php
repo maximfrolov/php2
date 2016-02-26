@@ -25,7 +25,7 @@ trait TSingleton
     /**
      * Метод, создающий или возвращающий
      * единственный экземпляр класса
-     * @return object 
+     * @return object
      */
     public static function instance()
     {
