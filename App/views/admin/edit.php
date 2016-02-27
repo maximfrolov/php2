@@ -9,7 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Own CSS styles -->
+    <link rel="stylesheet" href="/App/assets/css/main.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,7 +53,12 @@
         </a>
     </p>
 </div>
-
+<footer class="navbar-fixed-bottom row-fluid text-center">
+    <div class="container">
+        <span>&copy 2016 Максим Фролов. Все права защищены.</span>
+        <span class="pull-right"><?php print PHP_Timer::resourceUsage(); ?></span>
+    </div>
+</footer>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
