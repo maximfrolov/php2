@@ -9,3 +9,5 @@ spl_autoload_register(function ($class) {
         require_once $fileName;
     }
 });
+
+include __DIR__ . '/vendor/autoload.php';
