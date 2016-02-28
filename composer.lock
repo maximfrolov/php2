@@ -4,9 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "45a3413608ade376ba4bd46fffbf4325",
-    "content-hash": "7536dbf7ca5fa03739b799de7c8dd524",
+    "hash": "c801fcd5503b2f02e4c638bd014bf3d8",
+    "content-hash": "9b64aaec5e7a9c7da5c1765ab8e1b23b",
     "packages": [
+        {
+            "name": "maximfrolov/multiexception",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximfrolov/multiexception.git",
+                "reference": "0f94101ede0fb657c2f0fe9d4e95bdd064aec8cc"
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaximFrolov\\MultiException\\": "lib/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Maxim Frolov",
+                    "email": "frolov-max74@yandex.ru"
+                }
+            ],
+            "description": "Class library that implement the concept of multiexception",
+            "keywords": [
+                "exceptions",
+                "library",
+                "multiple",
+                "php"
+            ],
+            "time": "2016-02-28 17:36:50"
+        },
         {
             "name": "phpunit/php-timer",
             "version": "1.0.7",
@@ -52,11 +84,13 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "maximfrolov/multiexception": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
