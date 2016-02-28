@@ -2,6 +2,8 @@
 
 namespace App;
 
+use MaximFrolov\MultiException\MultiException;
+
 /**
  * Class Model Абстрактная модель
  * @package App

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controller;
 use App\Models\News;
-use App\MultiException;
+use MaximFrolov\MultiException\MultiException;
 use App\Exceptions\Error404;
 
 /**
