@@ -17,26 +17,25 @@ class News
     /**
      * Метод возвращающий строку
      * вывода памяти и времени страницы.
-     * @return string $resources
+     * @return string
      */
     public function getResources()
     {
-        return $resources = \PHP_Timer::resourceUsage();
+        return \PHP_Timer::resourceUsage();
     }
 
     /**
      * Метод возвращающий контекст
      * (объект класса Twig_Environment)
      * для хранения данных.
-     * @return object $context
+     * @return object
      */
     public function getContext()
     {
         $templates = new \Twig_Loader_Filesystem(__DIR__ . '/../views/news');
-        $context = new \Twig_Environment($templates, [
+        return new \Twig_Environment($templates, [
             'cache' => false,
         ]);
-        return $context;
     }
 
     /**
