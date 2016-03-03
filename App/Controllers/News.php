@@ -15,12 +15,40 @@ class News
 {
 
     /**
+     * Метод возвращающий строку
+     * вывода памяти и времени страницы.
+     * @return string $resources
+     */
+    public function getResources()
+    {
+        return $resources = \PHP_Timer::resourceUsage();
+    }
+
+    /**
+     * Метод возвращающий контекст
+     * (объект класса Twig_Environment)
+     * для хранения данных.
+     * @return object $context
+     */
+    public function getContext()
+    {
+        $templates = new \Twig_Loader_Filesystem(__DIR__ . '/../views/news');
+        $context = new \Twig_Environment($templates, [
+            'cache' => false,
+        ]);
+        return $context;
+    }
+
+    /**
      * Метод-экшн, для вывода последних новостей.
      */
     protected function actionIndex()
     {
-        $this->view->news = article::lastNews();
-        $this->view->display(__DIR__ . '/../views/news/lastNews.php');
+        $news = article::lastNews();
+        echo $this->getContext()->render('lastNews.html', [
+            'news' => $news,
+            'resources' => $this->getResources(),
+        ]);
     }
 
     /**
@@ -32,8 +60,11 @@ class News
         if (empty($_GET['id'])) {
             $this->redirect('/');
         }
-        if (!empty($this->view->article = article::findById($_GET['id']))) {
-            $this->view->display(__DIR__ . '/../views/news/oneNews.php');
+        if (!empty($article = article::findById($_GET['id']))) {
+            echo $this->getContext()->render('oneNews.html', [
+                'article' => $article,
+                'resources' => $this->getResources(),
+            ]);
         } else {
             throw new Error404(
                 'Упс..! Ошибка 404. Страница, которую вы искали, не найдена.'
@@ -46,8 +77,11 @@ class News
      */
     protected function actionAll()
     {
-        $this->view->news = article::findAllDesc();
-        $this->view->display(__DIR__ . '/../views/news/allNews.php');
+        $news = article::findAllDesc();
+        echo $this->getContext()->render('allNews.html', [
+            'news' => $news,
+            'resources' => $this->getResources(),
+        ]);
     }
 
 }

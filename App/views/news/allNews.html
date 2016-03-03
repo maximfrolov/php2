@@ -46,35 +46,33 @@
     </div><!-- /.container-fluid -->
 </nav>
 <h1>Все новости</h1>
-<?php foreach ($news as $article): ?>
+{% for article in news %}
 
     <div class="panel panel-default">
         <div class="panel-heading">
             <p>
-                <a href="/news/one/?id=<?php echo $article->id; ?>">
-                    <h3><?php echo $article->title; ?></h3>
+                <a href="/news/one/?id={{ article.id }}">
+                    <h3>{{ article.title }}</h3>
                 </a>
             </p>
         </div>
         <div class="panel-body">
-            <p>
-                <?php echo $article->text; ?>
-            </p>
+            <p>{{ article.text }}</p>
         </div>
         <div class="panel-footer">
             <p>
-                <?php if (!empty($article->author)) : ?>
-                    Автор: <?php echo $article->author->name; ?>
-                <?php endif; ?>
+                {% if article.author %}
+                Автор: {{ article.author.name }}
+                {% endif %}
             </p>
         </div>
     </div>
 
-<?php endforeach; ?>
+{% endfor %}
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
         <span>&copy 2016 Максим Фролов. Все права защищены.</span>
-        <span class="pull-right"><?php echo $resources; ?></span>
+        <span class="pull-right">{{ resources }}</span>
     </div>
 </footer>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>

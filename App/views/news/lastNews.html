@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php echo $article->title; ?></title>
+    <title>Последние новости</title>
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/news/index/">На главную</a></li>
+                <li class="active"><a href="/news/index/">На главную</a></li>
                 <li>
                     <a href="/news/all/">
                         Все новости
@@ -45,27 +45,34 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<h1>Последние новости</h1>
+{% for article in news %}
+
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3><?php echo $article->title; ?></h3>
+        <p>
+            <a href="/news/one/?id={{ article.id }}">
+                <h3>{{ article.title }}</h3>
+            </a>
+        </p>
     </div>
     <div class="panel-body">
-        <p>
-            <?php echo $article->text; ?>
-        </p>
+        <p>{{article.text}}</p>
     </div>
     <div class="panel-footer">
         <p>
-            <?php if (!empty($article->author)) : ?>
-                Автор: <?php echo $article->author->name; ?>
-            <?php endif; ?>
+            {% if article.author_id %}
+            Автор: {{ article.author.name }}
+            {% endif %}
         </p>
     </div>
 </div>
+
+{% endfor %}
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
         <span>&copy 2016 Максим Фролов. Все права защищены.</span>
-        <span class="pull-right"><?php echo $resources; ?></span>
+        <span class="pull-right">{{ resources }}</span>
     </div>
 </footer>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
