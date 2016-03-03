@@ -65,7 +65,7 @@
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
         <span>&copy 2016 Максим Фролов. Все права защищены.</span>
-        <span class="pull-right"><?php print PHP_Timer::resourceUsage(); ?></span>
+        <span class="pull-right"><?php echo $resources; ?></span>
     </div>
 </footer>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
