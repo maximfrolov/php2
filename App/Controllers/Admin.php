@@ -21,6 +21,7 @@ class Admin
     protected function actionIndex()
     {
         $this->view->news = News::findAllDesc();
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/admin/allNews.php');
     }
 
@@ -34,6 +35,7 @@ class Admin
             $this->redirect('/admin');
         }
         if (!empty($this->view->article = News::findById($_GET['id']))) {
+            $this->view->resources = $this->view->getTimer();
             $this->view->display(__DIR__ . '/../views/admin/oneNews.php');
         } else {
             throw new Error404(
@@ -49,6 +51,7 @@ class Admin
      */
     protected function actionAdd()
     {
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/admin/add.php');
     }
 
@@ -64,6 +67,7 @@ class Admin
             $this->redirect('/admin');
         }
         if (!empty($this->view->article = News::findById($_GET['id']))) {
+            $this->view->resources = $this->view->getTimer();
             $this->view->display(__DIR__ . '/../views/admin/edit.php');
         } else {
             throw new Error404(
@@ -87,6 +91,7 @@ class Admin
 
             $this->view->errors = $e;
         }
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/admin/create.php');
     }
 
@@ -120,6 +125,7 @@ class Admin
 
             $this->view->errors = $e;
         }
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/admin/create.php');
     }
 

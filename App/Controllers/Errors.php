@@ -21,6 +21,7 @@ class Errors
     {
         $this->view->header = 'Ошибка 404';
         $this->view->error = $e->getMessage();
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/errors/error.php');
     }
 
@@ -32,6 +33,7 @@ class Errors
     {
         $this->view->header = 'Ошибка БД';
         $this->view->error = $e->getMessage();
+        $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/errors/error.php');
     }
 }

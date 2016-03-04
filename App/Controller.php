@@ -46,13 +46,10 @@ abstract class Controller
     /**
      * Метод, который будет вызываться
      * автоматически перед любым экшном.
-     * (Здесь -> устанавливает свойство resources
-     * объекту view и присваивает этому свойству
-     * строку вывода памяти и времени страницы)
      */
     protected function beforeAction()
     {
-        $this->view->resources = \PHP_Timer::resourceUsage();
+        //echo счетчик
     }
 
     /**

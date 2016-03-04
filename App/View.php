@@ -13,6 +13,49 @@ class View
     use TMagic;
 
     /**
+     * Закрытое свойство, хранит в себе
+     * объект класса Twig_Environment
+     * @property \Twig_Environment
+     */
+    private $context;
+
+    /**
+     * View constructor.
+     * Метод-конструктор создает контекст
+     * (объект класса Twig_Environment)
+     * для хранения данных.
+     */
+    public function __construct()
+    {
+        $templates = new \Twig_Loader_Filesystem(__DIR__ . '/views/news');
+        $this->context = new \Twig_Environment($templates, [
+            'cache' => false,
+        ]);
+    }
+
+    /**
+     * Метод возвращающий строку
+     * вывода памяти и времени страницы.
+     * @return string
+     */
+    public function getTimer()
+    {
+        return \PHP_Timer::resourceUsage();
+    }
+
+    /**
+     * Метод загружает шаблон $template из среды $context,
+     * возвращает его в виде экземпляра Twig_template,
+     * передает в него данные $param для отображения.
+     * @param $template
+     * @param array $param
+     */
+    public function renderContext($template, $param = [])
+    {
+        echo $this->context->loadTemplate($template)->render($param);
+    }
+
+    /**
      * Метод, возвращающий подготовленный для показа шаблон
      * @param $template string Путь к шаблону
      * @return string Переданный в буфер вывода шаблон

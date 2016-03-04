@@ -15,38 +15,14 @@ class News
 {
 
     /**
-     * Метод возвращающий строку
-     * вывода памяти и времени страницы.
-     * @return string
-     */
-    public function getResources()
-    {
-        return \PHP_Timer::resourceUsage();
-    }
-
-    /**
-     * Метод возвращающий контекст
-     * (объект класса Twig_Environment)
-     * для хранения данных.
-     * @return object
-     */
-    public function getContext()
-    {
-        $templates = new \Twig_Loader_Filesystem(__DIR__ . '/../views/news');
-        return new \Twig_Environment($templates, [
-            'cache' => false,
-        ]);
-    }
-
-    /**
      * Метод-экшн, для вывода последних новостей.
      */
     protected function actionIndex()
     {
         $news = article::lastNews();
-        echo $this->getContext()->render('lastNews.html', [
+        $this->view->renderContext('lastNews.html', [
             'news' => $news,
-            'resources' => $this->getResources(),
+            'resources' => $this->view->getTimer(),
         ]);
     }
 
@@ -60,9 +36,9 @@ class News
             $this->redirect('/');
         }
         if (!empty($article = article::findById($_GET['id']))) {
-            echo $this->getContext()->render('oneNews.html', [
+            $this->view->renderContext('oneNews.html', [
                 'article' => $article,
-                'resources' => $this->getResources(),
+                'resources' => $this->view->getTimer(),
             ]);
         } else {
             throw new Error404(
@@ -77,9 +53,9 @@ class News
     protected function actionAll()
     {
         $news = article::findAllDesc();
-        echo $this->getContext()->render('allNews.html', [
+        $this->view->renderContext('allNews.html', [
             'news' => $news,
-            'resources' => $this->getResources(),
+            'resources' => $this->view->getTimer(),
         ]);
     }
 
