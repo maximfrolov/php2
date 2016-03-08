@@ -75,7 +75,28 @@ class Db
             throw new DbException(
                 'Ошибка в запросе к БД.'
             );
+        }
+    }
 
+    public function queryEach($sql, $class, $params = [])
+    {
+        try {
+
+            $sth = $this->dbh->prepare($sql);
+            $sth->setFetchMode(PDO::FETCH_CLASS, $class);
+            $res = $sth->execute($params);
+            if (false !== $res) {
+                while ($eachEntry = $sth->fetch()) {
+                    yield $eachEntry;
+                }
+            }
+            yield false;
+
+        } catch (PDOException $e) {
+
+            throw new DbException(
+                'Ошибка в запросе к БД.'
+            );
         }
     }
 

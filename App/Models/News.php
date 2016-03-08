@@ -42,7 +42,7 @@ class News
     public static function lastNews()
     {
         $db = Db::instance();
-        return $db->query(
+        return $db->queryEach(
             'SELECT * FROM ' . self::TABLE .
             ' ORDER BY id DESC LIMIT 3',
             self::class
@@ -57,7 +57,7 @@ class News
     public static function findAllDesc()
     {
         $db = Db::instance();
-        return $db->query(
+        return $db->queryEach(
             'SELECT * FROM ' . self::TABLE .
             ' ORDER BY id DESC',
             self::class
