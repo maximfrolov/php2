@@ -35,7 +35,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/news/index/">На главную</a></li>
+                <li class="active"><a href="/../admin/admin/index/">Все новости</a></li>
+                <li><a href="/../admin/admin/add/">Добавить новость</a></li>
+                <li><a href="/../admin/admin/table/">Таблица новостей</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

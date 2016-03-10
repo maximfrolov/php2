@@ -36,11 +36,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/admin/admin/index/">Все новости</a></li>
-                <li>
-                    <a href="/admin/admin/edit/?id=<?php echo $article->id; ?>">
-                        Редактировать новость
-                    </a>
-                </li>
+                <li><a href="/admin/admin/edit/?id=<?php echo $article->id; ?>">Редактировать новость</a></li>
+                <li><a href="/admin/admin/table/">Таблица новостей</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

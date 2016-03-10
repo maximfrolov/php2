@@ -37,6 +37,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/admin/admin/index/">Все новости</a></li>
                 <li><a href="/admin/admin/add/">Добавить новость</a></li>
+                <li><a href="/admin/admin/table/">Таблица новостей</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

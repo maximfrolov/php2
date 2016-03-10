@@ -37,6 +37,8 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/admin/admin/index/">Все новости</a></li>
                 <li><a href="/admin/admin/add/">Добавить новость</a></li>
+                <li><a href="/admin/admin/table/">Таблица новостей</a></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -60,11 +62,6 @@
             <button class="btn btn-sm btn-primary" type="reset">Сброс</button>
         </p>
     </form>
-    <p>
-        <a href="/admin/admin/index/">
-            <button class="btn btn-sm btn-primary">Назад</button>
-        </a>
-    </p>
 </div>
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
