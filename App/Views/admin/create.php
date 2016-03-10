@@ -19,13 +19,6 @@
     <![endif]-->
 </head>
 <body>
-
-<?php foreach ($errors as $error): ?>
-    <div class="alert alert-danger">
-        <?php echo $error->getMessage(); ?>
-    </div>
-<?php endforeach; ?>
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -51,6 +44,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<?php foreach ($errors as $error): ?>
+    <div class="alert alert-danger">
+        <?php echo $error->getMessage(); ?>
+    </div>
+<?php endforeach; ?>
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
         <span>&copy 2016 Максим Фролов. Все права защищены.</span>
