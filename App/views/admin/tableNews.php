@@ -41,34 +41,34 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID Новости</th>
-        <th>Заголовок</th>
-        <th>ID Автора</th>
-        <th>Редактировать</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($news as $entry): ?>
+<div class="container">
+    <table class="table">
+        <thead>
         <tr>
-            <?php foreach ($entry as $cell): ?>
-                <td>
-                    <?php echo $cell ?>
-                </td>
-            <?php endforeach; ?>
-            <td>
-                <a class="btn btn-sm btn-primary" href="/admin/admin/edit/?id=<?php echo $entry[0]; ?>">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-            </td>
+            <th>ID Новости</th>
+            <th>Заголовок</th>
+            <th>ID Автора</th>
+            <th></th>
         </tr>
-    <?php endforeach ?>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+        <?php foreach ($news as $entry): ?>
+            <tr>
+                <?php foreach ($entry as $cell): ?>
+                    <td>
+                        <?php echo $cell ?>
+                    </td>
+                <?php endforeach; ?>
+                <td>
+                    <a href="/admin/admin/edit/?id=<?php echo $entry[0]; ?>">
+                        <button class="btn btn-sm btn-primary">Редактировать</button>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>
 <footer class="navbar-fixed-bottom row-fluid text-center">
     <div class="container">
         <span>&copy 2016 Максим Фролов. Все права защищены.</span>

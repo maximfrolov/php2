@@ -36,20 +36,20 @@
         <br>
         <input type="number" name="author_id" value="<?php echo $article->author_id ?>">
         <p>
-            <button type="submit">Обновить новость</button>
-            <button type="reset">Сброс</button>
+            <button class="btn btn-sm btn-primary" type="submit">Обновить новость</button>
+            <button class="btn btn-sm btn-primary" type="reset">Сброс</button>
         </p>
     </form>
     <!-- форма для удаления новости -->
     <form method="post" action="/admin/admin/delete/">
         <input type="hidden" name="id" value="<?php echo $article->id ?>">
         <p>
-            <button type="submit">Удалить новость</button>
+            <button class="btn btn-sm btn-primary" type="submit">Удалить новость</button>
         </p>
     </form>
     <p>
         <a href="/admin/admin/index/">
-            <button>Назад</button>
+            <button class="btn btn-sm btn-primary">Назад</button>
         </a>
     </p>
 </div>

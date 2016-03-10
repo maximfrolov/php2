@@ -35,13 +35,13 @@
         <br>
         <input type="number" name="author_id">
         <p>
-            <button type="submit">Добавить новость</button>
-            <button type="reset">Сброс</button>
+            <button class="btn btn-sm btn-primary" type="submit">Добавить новость</button>
+            <button class="btn btn-sm btn-primary" type="reset">Сброс</button>
         </p>
     </form>
     <p>
         <a href="/admin/admin/index/">
-            <button>Назад</button>
+            <button class="btn btn-sm btn-primary">Назад</button>
         </a>
     </p>
 </div>
