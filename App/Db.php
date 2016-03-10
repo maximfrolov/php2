@@ -90,7 +90,7 @@ class Db
                     yield $eachEntry;
                 }
             }
-            yield false;
+            return false;
 
         } catch (PDOException $e) {
 
