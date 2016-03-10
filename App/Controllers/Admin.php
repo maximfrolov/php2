@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\AdminDataTable;
 use App\Controller;
 use App\Models\News;
 use MaximFrolov\MultiException\MultiException;
@@ -23,6 +24,30 @@ class Admin
         $this->view->news = News::findAllDesc();
         $this->view->resources = $this->view->getTimer();
         $this->view->display(__DIR__ . '/../views/admin/allNews.php');
+    }
+
+    /**
+     * Метод-экшн для вывода таблицы всех новостей.
+     */
+    protected function actionTable()
+    {
+        $news = News::findAllDesc();
+        $data = new AdminDataTable($news, [
+            function (News $article) {
+                return $article->id;
+            },
+
+            function (News $article) {
+                return $article->title;
+            },
+
+            function (News $article) {
+                return $article->author_id;
+            }
+        ]);
+        $this->view->news = $data->render();
+        $this->view->resources = $this->view->getTimer();
+        $this->view->display(__DIR__ . '/../views/admin/tableNews.php');
     }
 
     /**
